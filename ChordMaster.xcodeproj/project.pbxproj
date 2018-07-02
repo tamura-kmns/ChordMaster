@@ -13,6 +13,12 @@
 		68FFBEB220EAB8A600379616 /* ChordMaster.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 68FFBEB020EAB8A600379616 /* ChordMaster.xcdatamodeld */; };
 		68FFBEB420EAB8AA00379616 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68FFBEB320EAB8AA00379616 /* Assets.xcassets */; };
 		68FFBEB720EAB8AA00379616 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68FFBEB520EAB8AA00379616 /* LaunchScreen.storyboard */; };
+		68FFBED020EAC29F00379616 /* BasicNotes+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FFBECA20EAC29F00379616 /* BasicNotes+CoreDataClass.swift */; };
+		68FFBED120EAC29F00379616 /* BasicNotes+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FFBECB20EAC29F00379616 /* BasicNotes+CoreDataProperties.swift */; };
+		68FFBED220EAC29F00379616 /* ChordBase+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FFBECC20EAC29F00379616 /* ChordBase+CoreDataClass.swift */; };
+		68FFBED320EAC29F00379616 /* ChordBase+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FFBECD20EAC29F00379616 /* ChordBase+CoreDataProperties.swift */; };
+		68FFBED420EAC29F00379616 /* Chords+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FFBECE20EAC29F00379616 /* Chords+CoreDataClass.swift */; };
+		68FFBED520EAC29F00379616 /* Chords+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FFBECF20EAC29F00379616 /* Chords+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +30,12 @@
 		68FFBEB320EAB8AA00379616 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		68FFBEB620EAB8AA00379616 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		68FFBEB820EAB8AA00379616 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		68FFBECA20EAC29F00379616 /* BasicNotes+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BasicNotes+CoreDataClass.swift"; sourceTree = "<group>"; };
+		68FFBECB20EAC29F00379616 /* BasicNotes+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BasicNotes+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		68FFBECC20EAC29F00379616 /* ChordBase+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChordBase+CoreDataClass.swift"; sourceTree = "<group>"; };
+		68FFBECD20EAC29F00379616 /* ChordBase+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChordBase+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		68FFBECE20EAC29F00379616 /* Chords+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Chords+CoreDataClass.swift"; sourceTree = "<group>"; };
+		68FFBECF20EAC29F00379616 /* Chords+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Chords+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +52,12 @@
 		68FFBE9D20EAB8A600379616 = {
 			isa = PBXGroup;
 			children = (
+				68FFBECA20EAC29F00379616 /* BasicNotes+CoreDataClass.swift */,
+				68FFBECB20EAC29F00379616 /* BasicNotes+CoreDataProperties.swift */,
+				68FFBECC20EAC29F00379616 /* ChordBase+CoreDataClass.swift */,
+				68FFBECD20EAC29F00379616 /* ChordBase+CoreDataProperties.swift */,
+				68FFBECE20EAC29F00379616 /* Chords+CoreDataClass.swift */,
+				68FFBECF20EAC29F00379616 /* Chords+CoreDataProperties.swift */,
 				68FFBEA820EAB8A600379616 /* ChordMaster */,
 				68FFBEA720EAB8A600379616 /* Products */,
 			);
@@ -138,8 +156,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				68FFBED120EAC29F00379616 /* BasicNotes+CoreDataProperties.swift in Sources */,
+				68FFBED220EAC29F00379616 /* ChordBase+CoreDataClass.swift in Sources */,
+				68FFBED020EAC29F00379616 /* BasicNotes+CoreDataClass.swift in Sources */,
 				68FFBEB220EAB8A600379616 /* ChordMaster.xcdatamodeld in Sources */,
+				68FFBED420EAC29F00379616 /* Chords+CoreDataClass.swift in Sources */,
+				68FFBED520EAC29F00379616 /* Chords+CoreDataProperties.swift in Sources */,
 				68FFBEAC20EAB8A600379616 /* ViewController.swift in Sources */,
+				68FFBED320EAC29F00379616 /* ChordBase+CoreDataProperties.swift in Sources */,
 				68FFBEAA20EAB8A600379616 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
