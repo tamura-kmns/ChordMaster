@@ -11,13 +11,21 @@ import CoreData
 
 class ViewController: UIViewController {
     
+    let appdelegate = UIApplication.shared.delegate as! AppDelegate
     var managedContext:NSManagedObjectContext!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("init")
+
+        init12Notes()
+        initAllNotes()
         
-        let appdelegate = UIApplication.shared.delegate as! AppDelegate
-        let managedObjectContext = appdelegate.persistentContainer.viewContext
+        managedContext = appdelegate.persistentContainer.viewContext
+        
+        makeChordTable()
+        
+        /**********************
         let entity = NSEntityDescription.entity(forEntityName:"BasicNote", in: managedObjectContext)
         // データ追加
         var chordBase = ChordBase(entity:entity!,insertInto:managedObjectContext)
@@ -42,12 +50,53 @@ class ViewController: UIViewController {
         }catch{
             
         }
+        print("ok")
+       ******************/
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
+    //12音生成
+    func init12Notes(){
+        for i in 0..<12 {
+            base12NoteArray.append(BasicNote (num: i))
+        }
+    }
+    //全noteテーブル(鍵盤)生成
+    func initAllNotes() {
+        for i in 0...127 {
+            allNotesArray.append(Note(noteNum: i) )
+        }
+    }
+    
+    func makeChordTable(){
+        for note in base12NoteArray {
+            for chord in chordArray {
+                db_insertChord(basicNote:note,chordType:chord)
+                print("insert")
+            }
+        }
+    }
+    
+    func db_insertChord(basicNote:BasicNote, chordType:ChordType){
+        let chords = NSEntityDescription.insertNewObject(forEntityName: "Chords",
+                                                         into: self.managedContext) as! Chords
+        chords.keyNote = basicNote.eName
+        chords.cName = chordType.symbol
+        
+        
+        
+        self.appdelegate.saveContext()
+    }
+    
+
+
+
 
 
 }

@@ -18,7 +18,7 @@ extension ChordBase {
     }
 
     @NSManaged public var cName: String?
-    @NSManaged public var intvls: Array<Any>?
+    @NSManaged public var intvls: Array<Int>?
     @NSManaged public var kName: String?
     @NSManaged public var symbol: String?
     @NSManaged public var symbol2: String?

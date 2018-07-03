@@ -17,8 +17,8 @@ extension Chords {
         return NSFetchRequest<Chords>(entityName: "Chords")
     }
 
-    @NSManaged public var cName: String?
-    @NSManaged public var keyNote: String?
-    @NSManaged public var notes: NSObject?
+    @NSManaged public var cName: Array<String>?
+    @NSManaged public var keyNote: Array<String>?
+    @NSManaged public var notes: Array<String>?
 
 }
