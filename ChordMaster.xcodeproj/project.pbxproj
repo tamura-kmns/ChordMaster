@@ -22,6 +22,7 @@
 		68FFBEDC20EB740400379616 /* Chords+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FFBEDA20EB740400379616 /* Chords+CoreDataClass.swift */; };
 		68FFBEDD20EB740400379616 /* Chords+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FFBEDB20EB740400379616 /* Chords+CoreDataProperties.swift */; };
 		68FFBEDF20EC8C9900379616 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FFBEDE20EC8C9900379616 /* Utils.swift */; };
+		68FFBEE120ED6AE900379616 /* DBAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FFBEE020ED6AE900379616 /* DBAccess.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		68FFBEDA20EB740400379616 /* Chords+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Chords+CoreDataClass.swift"; sourceTree = "<group>"; };
 		68FFBEDB20EB740400379616 /* Chords+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Chords+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		68FFBEDE20EC8C9900379616 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		68FFBEE020ED6AE900379616 /* DBAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBAccess.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,12 +86,13 @@
 				68FFBED620EB60AE00379616 /* Chords.swift */,
 				68FFBEA920EAB8A600379616 /* AppDelegate.swift */,
 				68FFBEAB20EAB8A600379616 /* ViewController.swift */,
+				68FFBEDE20EC8C9900379616 /* Utils.swift */,
+				68FFBEE020ED6AE900379616 /* DBAccess.swift */,
 				68FFBEAD20EAB8A600379616 /* Main.storyboard */,
 				68FFBEB320EAB8AA00379616 /* Assets.xcassets */,
 				68FFBEB520EAB8AA00379616 /* LaunchScreen.storyboard */,
 				68FFBEB820EAB8AA00379616 /* Info.plist */,
 				68FFBEB020EAB8A600379616 /* ChordMaster.xcdatamodeld */,
-				68FFBEDE20EC8C9900379616 /* Utils.swift */,
 			);
 			path = ChordMaster;
 			sourceTree = "<group>";
@@ -165,6 +168,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				68FFBEE120ED6AE900379616 /* DBAccess.swift in Sources */,
 				68FFBEDC20EB740400379616 /* Chords+CoreDataClass.swift in Sources */,
 				68FFBED120EAC29F00379616 /* BasicNotes+CoreDataProperties.swift in Sources */,
 				68FFBEDD20EB740400379616 /* Chords+CoreDataProperties.swift in Sources */,

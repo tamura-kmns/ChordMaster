@@ -17,6 +17,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        init12Notes()
+        initAllNotes()
+        
+        makeChordTable()
+        
         return true
     }
 
@@ -42,6 +47,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
         // Saves changes in the application's managed object context before the application terminates.
         self.saveContext()
+    }
+    
+    
+    
+    //12音生成
+    func init12Notes(){
+        for i in 0..<12 {
+            base12NoteArray.append(BasicNote (num: i))
+        }
+    }
+    //全noteテーブル(鍵盤)生成
+    func initAllNotes() {
+        for i in 0...127 {
+            allNotesArray.append(Note(noteNum: i) )
+        }
+    }
+    
+    func makeChordTable(){
+        let dbAccess = DBAccess()
+        for note in base12NoteArray {
+            for chord in chordArray {
+                dbAccess.db_insertChord(basicNote:note,chordType:chord)
+                print("insert")
+            }
+        }
     }
 
     // MARK: - Core Data stack
