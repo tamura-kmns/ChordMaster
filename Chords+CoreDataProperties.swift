@@ -19,6 +19,6 @@ extension Chords {
 
     @NSManaged public var cName: Array<String>?
     @NSManaged public var keyNote: Array<String>?
-    @NSManaged public var notes: Array<String>?
+    @NSManaged public var notes: [[String]]?
 
 }

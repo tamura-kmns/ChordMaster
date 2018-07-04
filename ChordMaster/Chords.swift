@@ -14,7 +14,7 @@ class ChordType {
     let jName:String //和
     let kName:String //カナ
     let symbol:[String] //記号
-    let intvls:Array<Int> //ベース音からのinterval半音数
+    let intvls:Array<Int> //ベース音からのinterval 半音数
     
     init(name:String,
          jName:String,

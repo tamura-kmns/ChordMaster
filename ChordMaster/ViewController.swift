@@ -16,7 +16,6 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("init")
 
         init12Notes()
         initAllNotes()
@@ -89,9 +88,13 @@ class ViewController: UIViewController {
         chords.keyNote = basicNote.eName
         chords.cName = chordType.symbol
         
-        
-        
+        let utils = Utils()
+        let notesArray:[[String]] =
+            utils.getChordNotesFor(baseNote:basicNote,chordIntvlArray:chordType.intvls)
+        chords.notes = notesArray
         self.appdelegate.saveContext()
+        
+        print("saved")
     }
     
 

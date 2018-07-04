@@ -21,6 +21,7 @@
 		68FFBED920EB61E200379616 /* Notes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FFBED820EB61E200379616 /* Notes.swift */; };
 		68FFBEDC20EB740400379616 /* Chords+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FFBEDA20EB740400379616 /* Chords+CoreDataClass.swift */; };
 		68FFBEDD20EB740400379616 /* Chords+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FFBEDB20EB740400379616 /* Chords+CoreDataProperties.swift */; };
+		68FFBEDF20EC8C9900379616 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FFBEDE20EC8C9900379616 /* Utils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		68FFBED820EB61E200379616 /* Notes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notes.swift; sourceTree = "<group>"; };
 		68FFBEDA20EB740400379616 /* Chords+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Chords+CoreDataClass.swift"; sourceTree = "<group>"; };
 		68FFBEDB20EB740400379616 /* Chords+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Chords+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		68FFBEDE20EC8C9900379616 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 				68FFBEB520EAB8AA00379616 /* LaunchScreen.storyboard */,
 				68FFBEB820EAB8AA00379616 /* Info.plist */,
 				68FFBEB020EAB8A600379616 /* ChordMaster.xcdatamodeld */,
+				68FFBEDE20EC8C9900379616 /* Utils.swift */,
 			);
 			path = ChordMaster;
 			sourceTree = "<group>";
@@ -173,6 +176,7 @@
 				68FFBEAC20EAB8A600379616 /* ViewController.swift in Sources */,
 				68FFBED320EAC29F00379616 /* ChordBase+CoreDataProperties.swift in Sources */,
 				68FFBEAA20EAB8A600379616 /* AppDelegate.swift in Sources */,
+				68FFBEDF20EC8C9900379616 /* Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
