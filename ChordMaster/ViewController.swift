@@ -41,6 +41,12 @@ class ViewController: UIViewController {
         print("ok")
        ******************/
         
+        let dbAccess = DBAccess()
+        let chordsArray = dbAccess.db_selectAllChords()
+        //for note:BasicNote in chordsArray {
+            
+
+        
     }
 
     override func didReceiveMemoryWarning() {

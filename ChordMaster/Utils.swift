@@ -23,7 +23,7 @@ public class Utils: NSObject {
         }
         let maxIndex = base12NoteArray.count
         for i in chordIntvlArray {
-            noteArray.append(base12NoteArray[i % maxIndex].eName)
+            noteArray.append(base12NoteArray[(baseN + i) % maxIndex].eName)  //eNameのみを選択
         }
         return noteArray;
     }

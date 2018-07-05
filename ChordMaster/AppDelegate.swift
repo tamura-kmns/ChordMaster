@@ -10,17 +10,26 @@ import UIKit
 import CoreData
 
 @UIApplicationMain
+
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         init12Notes()
         initAllNotes()
         
-        makeChordTable()
+        let dbAccess = DBAccess()
+        let chordsArray = dbAccess.db_selectAllChords()
+        if (chordsArray.count < 1){
+            print("Start generating chord data")
+            generateChordTable()
+        }else{
+            print("Chord data already exists.Skip generating chords")
+        }
+        
+        
         
         return true
     }
@@ -64,12 +73,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
-    func makeChordTable(){
+    func generateChordTable(){
         let dbAccess = DBAccess()
         for note in base12NoteArray {
             for chord in chordArray {
                 dbAccess.db_insertChord(basicNote:note,chordType:chord)
-                print("insert")
             }
         }
     }

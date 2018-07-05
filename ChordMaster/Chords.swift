@@ -88,8 +88,11 @@ let seventh = ChordType(name:"seventh",
 )
 
 
-let chordArray = [major,minor,diminish,augment,sus4,maj7,seventh]
+let chordTypeArray = [major,minor,diminish,augment,sus4,maj7,seventh]
 
 
-
+class Chord {
+    
+    
+}
 

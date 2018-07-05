@@ -28,9 +28,16 @@ public class DBAccess: NSObject {
             utils.getChordNotesFor(baseNote:basicNote,chordIntvlArray:chordType.intvls)
         chords.notes = notesArray
         appdelegate.saveContext()
-        
-        print("saved")
+        print("inserted")
     }
-
-
+    
+    func db_selectAllChords()->Array<Chords>{
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Chords")
+        do {
+            let fetchedResult = try managedContext.fetch(fetchRequest) as! [Chords]
+            return fetchedResult
+        } catch {
+            fatalError("Failed to fetch chords: \(error)")
+        }
+    }
 }
