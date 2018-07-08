@@ -143,14 +143,14 @@ let scale = (major: [0,2,4,5,7,9,11],
              minior3: [0,2,3,5,7,9,11]
 )
 
-let majorScale3NotesChords = [(0,major),(2,minor),(4,minor),(5,major),(7,major),(9,minor),(11,dim)]
+let majorScaleTriadChords = [(0,major),(2,minor),(4,minor),(5,major),(7,major),(9,minor),(11,dim)]
 let majorScale4NotesChords = [(0,maj7),(2,minor7),(4,minor7),(5,major),(7,major),(9,minor),(11,dim)]
-let minor1Scale3NotesChords = [(0,maj7),(2,minor7),(4,minor7),(5,major),(7,major),(9,minor),(11,dim)]
-let minor1Scale4NotesChords = [(0,maj7),(2,minor7),(4,minor7),(5,major),(7,major),(9,minor),(11,dim)]
-let minor2Scale3NotesChords = [(0,maj7),(2,minor7),(4,minor7),(5,major),(7,major),(9,minor),(11,dim)]
-let minor2Scale4NotesChords = [(0,maj7),(2,minor7),(4,minor7),(5,major),(7,major),(9,minor),(11,dim)]
-let minor3Scale3NotesChords = [(0,maj7),(2,minor7),(4,minor7),(5,major),(7,major),(9,minor),(11,dim)]
-let minor3Scale4NotesChords = [(0,maj7),(2,minor7),(4,minor7),(5,major),(7,major),(9,minor),(11,dim)]
+let minorNaturalTriadChords = [(0,maj7),(2,minor7),(4,minor7),(5,major),(7,major),(9,minor),(11,dim)]
+let minorNatural4NotesChords = [(0,maj7),(2,minor7),(4,minor7),(5,major),(7,major),(9,minor),(11,dim)]
+let minorHarmonicTriadChords = [(0,maj7),(2,minor7),(4,minor7),(5,major),(7,major),(9,minor),(11,dim)]
+let minorHarmonic4NotesChords = [(0,maj7),(2,minor7),(4,minor7),(5,major),(7,major),(9,minor),(11,dim)]
+let minorMelodicTriadChords = [(0,maj7),(2,minor7),(4,minor7),(5,major),(7,major),(9,minor),(11,dim)]
+let minorMelodic4NotesChords = [(0,maj7),(2,minor7),(4,minor7),(5,major),(7,major),(9,minor),(11,dim)]
 
 
 

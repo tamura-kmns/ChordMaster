@@ -28,12 +28,32 @@ public class Utils: NSObject {
         return noteArray;
     }
     
-    func getDiatonicMajor3NotesChords(baseNoteNum:Int)-> [Chord] {
+    func getScaleChordsFor(baseNoteNum:Int, scale:DiatonicScaleChords)-> [Chord] {
         let dbAccess = DBAccess()
         let maxIndex = base12NoteArray.count
         var chordArray: [Chord] = []
+        var scaleArray:[(Int,ChordType)] = []
         
-        for (chordNoteNum,chordType) in majorScale3NotesChords {
+        switch (scale){
+        case .MAJOR_3:
+           scaleArray = majorScaleTriadChords
+        case .MAJOR_4:
+            scaleArray = majorScale4NotesChords
+        case .MINOR_NATURAL_3:
+            scaleArray = minorNaturalTriadChords
+        case .MINOR_HARMONIC_3:
+            scaleArray = minorHarmonicTriadChords
+        case .MINOR_MELODIC_3:
+            scaleArray = minorMelodicTriadChords
+        case .MINOR_NATURAL_4:
+            scaleArray = minorNatural4NotesChords
+        case .MINOR_HARMONIC_4:
+            scaleArray = minorHarmonic4NotesChords
+        case .MINOR_MELODIC_4:
+            scaleArray = minorMelodic4NotesChords
+        }
+        
+        for (chordNoteNum,chordType) in scaleArray {
             var note = base12NoteArray[(baseNoteNum + chordNoteNum) % maxIndex]
             
             let chords:Array<Chord> = dbAccess.db_selectChordWith(keyName: note.eName[0],

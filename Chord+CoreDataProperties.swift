@@ -17,10 +17,12 @@ extension Chord {
         return NSFetchRequest<Chord>(entityName: "Chords")
     }
 
-    @NSManaged public var cType1: String?
     @NSManaged public var keyNote1: String?
-    @NSManaged public var notes: [[String]]?
-    @NSManaged public var cType2: String?
     @NSManaged public var keyNote2: String?
+    @NSManaged public var cType1: String?
+    @NSManaged public var cType2: String?
+    @NSManaged public var notes: [[String]]?
+    
+    
 
 }
