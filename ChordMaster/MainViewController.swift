@@ -23,7 +23,7 @@ UITextFieldDelegate,UICollectionViewDataSource {
         let dbAccess = DBAccess()
         let chordsArray = dbAccess.db_selectAllChords()
         for chord:Chord in chordsArray {
-            print (chord.keyNote![0] + chord.cType![0])
+            print (chord.keyNote1! + chord.cType1!)
 
         }
     }
@@ -54,7 +54,9 @@ UITextFieldDelegate,UICollectionViewDataSource {
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         let utils = Utils()
         let chords = utils.getDiatonicMajor3NotesChords(baseNoteNum: row)
-        print(chords.count)
+        for chord in chords{
+            print(chord.keyNote1! + chord.cType1!)
+        }
 
     }
     

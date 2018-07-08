@@ -20,8 +20,11 @@ public class DBAccess: NSObject {
         //managedContext = appdelegate.persistentContainer.viewContext
         let chord = NSEntityDescription.insertNewObject(forEntityName: "Chords",
                                                          into: self.managedContext) as! Chord
-        chord.keyNote = basicNote.eName
-        chord.cType = chordType.symbol
+        chord.keyNote1 = basicNote.eName[0]
+        chord.cType1 = chordType.symbol[0]
+        chord.keyNote2 = basicNote.eName[1]
+        chord.cType2 = chordType.symbol[1]
+        
         
         let utils = Utils()
         let notesArray:[[String]] =
@@ -41,13 +44,11 @@ public class DBAccess: NSObject {
         }
     }
     func db_selectChordWith(keyName:String, chordType:String)->[Chord] {
-        print(keyName)
-        print(chordType)
+
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Chords")
-        fetchRequest.predicate = NSPredicate(format: "keyNote = %@ AND cType = %@", keyName,chordType)
+        fetchRequest.predicate = NSPredicate(format: "keyNote1 = %@ AND cType1 = %@", keyName,chordType)
         do {
             let fetchedResult = try managedContext.fetch(fetchRequest) as! [Chord]
-            print(fetchedResult.count)
             return fetchedResult
         } catch {
             fatalError("Failed to fetch chords: \(error)")

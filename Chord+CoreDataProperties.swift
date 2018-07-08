@@ -2,7 +2,7 @@
 //  Chord+CoreDataProperties.swift
 //  ChordMaster
 //
-//  Created by KatsuhikoTamura on 2018/07/06.
+//  Created by KatsuhikoTamura on 2018/07/08.
 //  Copyright © 2018年 9bit.co. All rights reserved.
 //
 //
@@ -17,8 +17,10 @@ extension Chord {
         return NSFetchRequest<Chord>(entityName: "Chords")
     }
 
-    @NSManaged public var cType: [String]?
-    @NSManaged public var keyNote: [String]?
+    @NSManaged public var cType1: String?
+    @NSManaged public var keyNote1: String?
     @NSManaged public var notes: [[String]]?
+    @NSManaged public var cType2: String?
+    @NSManaged public var keyNote2: String?
 
 }

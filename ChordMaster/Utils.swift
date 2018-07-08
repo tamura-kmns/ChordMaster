@@ -39,8 +39,6 @@ public class Utils: NSObject {
             let chords:Array<Chord> = dbAccess.db_selectChordWith(keyName: note.eName[0],
                                                                   chordType: chordType.symbol[0])
             if(chords.count > 0){
-                print("get")
-                print(chordArray.append(chords[0]))
                 chordArray.append(chords[0]) //TODO optional
             }
         }
