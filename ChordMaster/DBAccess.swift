@@ -18,26 +18,41 @@ public class DBAccess: NSObject {
 
     func db_insertChord(basicNote:BasicNote, chordType:ChordType){
         //managedContext = appdelegate.persistentContainer.viewContext
-        let chords = NSEntityDescription.insertNewObject(forEntityName: "Chords",
-                                                         into: self.managedContext) as! Chords
-        chords.keyNote = basicNote.eName
-        chords.cName = chordType.symbol
+        let chord = NSEntityDescription.insertNewObject(forEntityName: "Chords",
+                                                         into: self.managedContext) as! Chord
+        chord.keyNote = basicNote.eName
+        chord.cType = chordType.symbol
         
         let utils = Utils()
         let notesArray:[[String]] =
             utils.getChordNotesFor(baseNote:basicNote,chordIntvlArray:chordType.intvls)
-        chords.notes = notesArray
+        chord.notes = notesArray
         appdelegate.saveContext()
         print("inserted")
     }
     
-    func db_selectAllChords()->Array<Chords>{
+    func db_selectAllChords()->Array<Chord>{
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Chords")
         do {
-            let fetchedResult = try managedContext.fetch(fetchRequest) as! [Chords]
+            let fetchedResult = try managedContext.fetch(fetchRequest) as! [Chord]
             return fetchedResult
         } catch {
             fatalError("Failed to fetch chords: \(error)")
         }
     }
+    func db_selectChordWith(keyName:String, chordType:String)->[Chord] {
+        print(keyName)
+        print(chordType)
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Chords")
+        fetchRequest.predicate = NSPredicate(format: "keyNote = %@ AND cType = %@", keyName,chordType)
+        do {
+            let fetchedResult = try managedContext.fetch(fetchRequest) as! [Chord]
+            print(fetchedResult.count)
+            return fetchedResult
+        } catch {
+            fatalError("Failed to fetch chords: \(error)")
+        }
+    }
+    
+    
 }

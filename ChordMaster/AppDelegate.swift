@@ -75,9 +75,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func generateChordTable(){
         let dbAccess = DBAccess()
-        for note in base12NoteArray {
-            for chord in chordArray {
-                dbAccess.db_insertChord(basicNote:note,chordType:chord)
+        for baseNote in base12NoteArray {
+            for (_,val) in chordTypes {
+                dbAccess.db_insertChord(basicNote:baseNote,chordType:val)
             }
         }
     }

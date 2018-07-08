@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		68D2DC7120EFEECF00B225DC /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D2DC7020EFEECF00B225DC /* Const.swift */; };
 		68FFBEAA20EAB8A600379616 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FFBEA920EAB8A600379616 /* AppDelegate.swift */; };
-		68FFBEAC20EAB8A600379616 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FFBEAB20EAB8A600379616 /* ViewController.swift */; };
+		68FFBEAC20EAB8A600379616 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FFBEAB20EAB8A600379616 /* MainViewController.swift */; };
 		68FFBEAF20EAB8A600379616 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68FFBEAD20EAB8A600379616 /* Main.storyboard */; };
 		68FFBEB220EAB8A600379616 /* ChordMaster.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 68FFBEB020EAB8A600379616 /* ChordMaster.xcdatamodeld */; };
 		68FFBEB420EAB8AA00379616 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68FFBEB320EAB8AA00379616 /* Assets.xcassets */; };
@@ -19,16 +20,17 @@
 		68FFBED320EAC29F00379616 /* ChordBase+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FFBECD20EAC29F00379616 /* ChordBase+CoreDataProperties.swift */; };
 		68FFBED720EB60AE00379616 /* Chords.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FFBED620EB60AE00379616 /* Chords.swift */; };
 		68FFBED920EB61E200379616 /* Notes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FFBED820EB61E200379616 /* Notes.swift */; };
-		68FFBEDC20EB740400379616 /* Chords+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FFBEDA20EB740400379616 /* Chords+CoreDataClass.swift */; };
-		68FFBEDD20EB740400379616 /* Chords+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FFBEDB20EB740400379616 /* Chords+CoreDataProperties.swift */; };
 		68FFBEDF20EC8C9900379616 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FFBEDE20EC8C9900379616 /* Utils.swift */; };
 		68FFBEE120ED6AE900379616 /* DBAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FFBEE020ED6AE900379616 /* DBAccess.swift */; };
+		68FFBEE420EE894400379616 /* Chord+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FFBEE220EE894400379616 /* Chord+CoreDataClass.swift */; };
+		68FFBEE520EE894400379616 /* Chord+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FFBEE320EE894400379616 /* Chord+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		68D2DC7020EFEECF00B225DC /* Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
 		68FFBEA620EAB8A600379616 /* ChordMaster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChordMaster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		68FFBEA920EAB8A600379616 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		68FFBEAB20EAB8A600379616 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		68FFBEAB20EAB8A600379616 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		68FFBEAE20EAB8A600379616 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		68FFBEB120EAB8A600379616 /* ChordMaster.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ChordMaster.xcdatamodel; sourceTree = "<group>"; };
 		68FFBEB320EAB8AA00379616 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -40,10 +42,10 @@
 		68FFBECD20EAC29F00379616 /* ChordBase+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChordBase+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		68FFBED620EB60AE00379616 /* Chords.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chords.swift; sourceTree = "<group>"; };
 		68FFBED820EB61E200379616 /* Notes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notes.swift; sourceTree = "<group>"; };
-		68FFBEDA20EB740400379616 /* Chords+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Chords+CoreDataClass.swift"; sourceTree = "<group>"; };
-		68FFBEDB20EB740400379616 /* Chords+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Chords+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		68FFBEDE20EC8C9900379616 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		68FFBEE020ED6AE900379616 /* DBAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBAccess.swift; sourceTree = "<group>"; };
+		68FFBEE220EE894400379616 /* Chord+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Chord+CoreDataClass.swift"; sourceTree = "<group>"; };
+		68FFBEE320EE894400379616 /* Chord+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Chord+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,8 +62,8 @@
 		68FFBE9D20EAB8A600379616 = {
 			isa = PBXGroup;
 			children = (
-				68FFBEDA20EB740400379616 /* Chords+CoreDataClass.swift */,
-				68FFBEDB20EB740400379616 /* Chords+CoreDataProperties.swift */,
+				68FFBEE220EE894400379616 /* Chord+CoreDataClass.swift */,
+				68FFBEE320EE894400379616 /* Chord+CoreDataProperties.swift */,
 				68FFBECA20EAC29F00379616 /* BasicNotes+CoreDataClass.swift */,
 				68FFBECB20EAC29F00379616 /* BasicNotes+CoreDataProperties.swift */,
 				68FFBECC20EAC29F00379616 /* ChordBase+CoreDataClass.swift */,
@@ -82,10 +84,11 @@
 		68FFBEA820EAB8A600379616 /* ChordMaster */ = {
 			isa = PBXGroup;
 			children = (
+				68D2DC7020EFEECF00B225DC /* Const.swift */,
 				68FFBED820EB61E200379616 /* Notes.swift */,
 				68FFBED620EB60AE00379616 /* Chords.swift */,
 				68FFBEA920EAB8A600379616 /* AppDelegate.swift */,
-				68FFBEAB20EAB8A600379616 /* ViewController.swift */,
+				68FFBEAB20EAB8A600379616 /* MainViewController.swift */,
 				68FFBEDE20EC8C9900379616 /* Utils.swift */,
 				68FFBEE020ED6AE900379616 /* DBAccess.swift */,
 				68FFBEAD20EAB8A600379616 /* Main.storyboard */,
@@ -168,19 +171,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				68FFBEE420EE894400379616 /* Chord+CoreDataClass.swift in Sources */,
 				68FFBEE120ED6AE900379616 /* DBAccess.swift in Sources */,
-				68FFBEDC20EB740400379616 /* Chords+CoreDataClass.swift in Sources */,
 				68FFBED120EAC29F00379616 /* BasicNotes+CoreDataProperties.swift in Sources */,
-				68FFBEDD20EB740400379616 /* Chords+CoreDataProperties.swift in Sources */,
 				68FFBED220EAC29F00379616 /* ChordBase+CoreDataClass.swift in Sources */,
 				68FFBED020EAC29F00379616 /* BasicNotes+CoreDataClass.swift in Sources */,
 				68FFBEB220EAB8A600379616 /* ChordMaster.xcdatamodeld in Sources */,
 				68FFBED920EB61E200379616 /* Notes.swift in Sources */,
 				68FFBED720EB60AE00379616 /* Chords.swift in Sources */,
-				68FFBEAC20EAB8A600379616 /* ViewController.swift in Sources */,
+				68FFBEE520EE894400379616 /* Chord+CoreDataProperties.swift in Sources */,
+				68FFBEAC20EAB8A600379616 /* MainViewController.swift in Sources */,
 				68FFBED320EAC29F00379616 /* ChordBase+CoreDataProperties.swift in Sources */,
 				68FFBEAA20EAB8A600379616 /* AppDelegate.swift in Sources */,
 				68FFBEDF20EC8C9900379616 /* Utils.swift in Sources */,
+				68D2DC7120EFEECF00B225DC /* Const.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

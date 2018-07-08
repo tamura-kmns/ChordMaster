@@ -48,7 +48,7 @@ let minor = ChordType(name:"minor",
                       intvls:[0,3,7]
 )
 
-let diminish = ChordType(name:"diminish",
+let dim = ChordType(name:"diminish",
                          jName:"減三和音",
                          kName:"ディミニッシュ",
                          symbol:"dim",
@@ -73,26 +73,84 @@ let sus4 = ChordType(name:"sus4",
 
 let maj7 = ChordType(name:"major7",
                      jName:"メジャーセブンス",
-                     kName:"メジャーセブンす",
+                     kName:"メジャーセブンス",
                      symbol:"M7",
-                     symbol2:"Maj7",
+                     symbol2:"maj7",
                      intvls:[0,4,7,11]
 )
 
 let seventh = ChordType(name:"seventh",
                      jName:"セブンス",
-                     kName:"セブンす",
+                     kName:"セブンス",
                      symbol:"7",
                      symbol2:"7",
                      intvls:[0,4,7,10]
 )
 
+let minor7 = ChordType(name:"minor7",
+                        jName:"セブンス",
+                        kName:"セブンス",
+                        symbol:"7",
+                        symbol2:"7",
+                        intvls:[0,3,7,10]
+)
 
-let chordTypeArray = [major,minor,diminish,augment,sus4,maj7,seventh]
+let halfdim = ChordType(name:"halfdiminish",
+                        jName:"ハーフディミニッシュ",
+                        kName:"ハーフディミニッシュ",
+                        symbol:"m7-5",
+                        symbol2:"m7♭5",
+                        intvls:[0,3,6,10]
+)
+
+let dim７ = ChordType(name:"diminish7",
+                         jName:"減七和音",
+                         kName:"ディミニッシュ7",
+                         symbol:"dim7",
+                         symbol2:"dim7",
+                         intvls:[0,3,6]
+)
+
+let maj7f5 = ChordType(name:"major7flat5",
+                     jName:"メジャーセブンス",
+                     kName:"メジャーセブンス",
+                     symbol:"M7-5",
+                     symbol2:"M7♭5",
+                     intvls:[0,4,7,11]
+)
 
 
-class Chord {
-    
-    
-}
+
+
+let chordTypes = ["major":major,
+                  "minor":minor,
+                  "dim":dim,
+                  "aug":augment,
+                  "sus4":sus4,
+                  "maj7":maj7,
+                  "halfdim":halfdim,
+                  "dim7":dim７,
+                  "maj7f5":maj7f5]
+
+
+
+
+//////////////////////////////////////
+//音階
+let scale = (major: [0,2,4,5,7,9,11],
+             minior1: [0,2,3,5,7,8,10],
+             minior2: [0,2,3,5,7,8,11],
+             minior3: [0,2,3,5,7,9,11]
+)
+
+let majorScale3NotesChords = [(0,major),(2,minor),(4,minor),(5,major),(7,major),(9,minor),(11,dim)]
+let majorScale4NotesChords = [(0,maj7),(2,minor7),(4,minor7),(5,major),(7,major),(9,minor),(11,dim)]
+let minor1Scale3NotesChords = [(0,maj7),(2,minor7),(4,minor7),(5,major),(7,major),(9,minor),(11,dim)]
+let minor1Scale4NotesChords = [(0,maj7),(2,minor7),(4,minor7),(5,major),(7,major),(9,minor),(11,dim)]
+let minor2Scale3NotesChords = [(0,maj7),(2,minor7),(4,minor7),(5,major),(7,major),(9,minor),(11,dim)]
+let minor2Scale4NotesChords = [(0,maj7),(2,minor7),(4,minor7),(5,major),(7,major),(9,minor),(11,dim)]
+let minor3Scale3NotesChords = [(0,maj7),(2,minor7),(4,minor7),(5,major),(7,major),(9,minor),(11,dim)]
+let minor3Scale4NotesChords = [(0,maj7),(2,minor7),(4,minor7),(5,major),(7,major),(9,minor),(11,dim)]
+
+
 
