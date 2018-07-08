@@ -79,7 +79,7 @@ UITextFieldDelegate,UICollectionViewDataSource {
                                        blue: CGFloat(drand48()),
                                        alpha: 1.0)
         cell.chordNameLabel.text =
-            self.chordArray[indexPath.row].keyNote1! + self.chordArray[indexPath.row].cType1!
+            self.chordArray[indexPath.row].keyNote2! + self.chordArray[indexPath.row].cType1!
         
         /***
         let tapGesture:UITapGestureRecognizer = UITapGestureRecognizer(
