@@ -14,7 +14,12 @@ UITextFieldDelegate,UICollectionViewDataSource {
     @IBOutlet weak var keyButton: UIButton!
     @IBOutlet weak var keyPickerView: UIPickerView!
     @IBOutlet weak var chordCollectionView: UICollectionView!
-    var chordArray: [Chord] = []
+    
+    var allChordsArray: [Chord] = []
+    var chordArray_Diatonic3: [Chord] = []
+    var chordArray_Diatonic4: [Chord] = []
+    var chordArray_NaturalMinor3: [Chord] = []
+    var chordArray_NaturalMinor4: [Chord] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,19 +59,53 @@ UITextFieldDelegate,UICollectionViewDataSource {
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         let utils = Utils()
+        self.allChordsArray.removeAll()
         
-        chordArray.removeAll()
-        let chords = utils.getScaleChordsFor(baseNoteNum: row, scale: DiatonicScaleChords.MAJOR_3)
+        chordArray_Diatonic3.removeAll()
+        var chords = utils.getScaleChordsFor(baseNoteNum: row, scale: DiatonicScaleChords.MAJOR_3)
         for chord in chords{
             print(chord.keyNote1! + chord.cType1!)
-            chordArray.append(chord)
+            chordArray_Diatonic3.append(chord)
         }
+        allChordsArray += chordArray_Diatonic3
+        
+        chordArray_Diatonic4.removeAll()
+        chords.removeAll()
+        chords = utils.getScaleChordsFor(baseNoteNum: row, scale: DiatonicScaleChords.MAJOR_4)
+        for chord in chords{
+            print(chord.keyNote1! + chord.cType1!)
+            chordArray_Diatonic4.append(chord)
+        }
+        allChordsArray += chordArray_Diatonic4
+        
+        chordArray_NaturalMinor3.removeAll()
+        chords.removeAll()
+        chords = utils.getScaleChordsFor(baseNoteNum: row, scale: DiatonicScaleChords.MINOR_NATURAL_3)
+        for chord in chords{
+            print(chord.keyNote1! + chord.cType1!)
+            chordArray_NaturalMinor3.append(chord)
+        }
+        allChordsArray += chordArray_NaturalMinor3
+        
+        chordArray_NaturalMinor4.removeAll()
+        chords.removeAll()
+        chords = utils.getScaleChordsFor(baseNoteNum: row, scale: DiatonicScaleChords.MINOR_NATURAL_4)
+        for chord in chords{
+            print(chord.keyNote1! + chord.cType1!)
+            chordArray_NaturalMinor4.append(chord)
+        }
+        allChordsArray += chordArray_NaturalMinor4
+        
+        
+        
+
         self.chordCollectionView.reloadData()
 
     }
     
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return chordArray.count
+        return allChordsArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -79,7 +118,7 @@ UITextFieldDelegate,UICollectionViewDataSource {
                                        blue: CGFloat(drand48()),
                                        alpha: 1.0)
         cell.chordNameLabel.text =
-            self.chordArray[indexPath.row].keyNote2! + self.chordArray[indexPath.row].cType1!
+            self.allChordsArray[indexPath.row].keyNote2! + self.allChordsArray[indexPath.row].cType1!
         
         /***
         let tapGesture:UITapGestureRecognizer = UITapGestureRecognizer(

@@ -22,3 +22,6 @@ enum DiatonicScaleChords{
     case MINOR_HARMONIC_4
     case MINOR_MELODIC_4
 }
+enum OtherChords{
+    case SUBDOMINANT_MINOR
+}
