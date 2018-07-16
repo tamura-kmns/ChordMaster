@@ -28,30 +28,37 @@ public class Utils: NSObject {
         return noteArray;
     }
     
-    func getScaleChordsFor(baseNoteNum:Int, scale:DiatonicScaleChords)-> [Chord] {
+    func getDiatonicChordsFor(baseNoteNum:Int, chordset:ChordSet)-> [Chord] {
         let dbAccess = DBAccess()
         let maxIndex = base12NoteArray.count
         var chordArray: [Chord] = []
         var scaleArray:[(Int,ChordType)] = []
         
-        switch (scale){
-        case .MAJOR_3:
+        switch (chordset){
+        case .DIATONIC_MAJOR_3:
            scaleArray = majorScaleTriadChords
-        case .MAJOR_4:
+        case .DIATONIC_MAJOR_4:
             scaleArray = majorScale4NotesChords
-        case .MINOR_NATURAL_3:
+        case .DIATONIC_MINOR_NATURAL_3:
             scaleArray = minorNaturalTriadChords
-        case .MINOR_HARMONIC_3:
+        case .DIATONIC_MINOR_HARMONIC_3:
             scaleArray = minorHarmonicTriadChords
-        case .MINOR_MELODIC_3:
+        case .DIATONIC_MINOR_MELODIC_3:
             scaleArray = minorMelodicTriadChords
-        case .MINOR_NATURAL_4:
+        case .DIATONIC_MINOR_NATURAL_4:
             scaleArray = minorNatural4NotesChords
-        case .MINOR_HARMONIC_4:
+        case .DIATONIC_MINOR_HARMONIC_4:
             scaleArray = minorHarmonic4NotesChords
-        case .MINOR_MELODIC_4:
+        case .DIATONIC_MINOR_MELODIC_4:
             scaleArray = minorMelodic4NotesChords
+        case .DIATONIC_MINOR_ALL_3:
+            scaleArray = minorAllTriadChords
+        case .DIATONIC_MINOR_ALL_4:
+            scaleArray = minorAll4NotesChords
+        case .SUBDOMINANT_MINOR:
+            break
         }
+        
         
         for (chordNoteNum,chordType) in scaleArray {
             var note = base12NoteArray[(baseNoteNum + chordNoteNum) % maxIndex]
@@ -65,3 +72,6 @@ public class Utils: NSObject {
         return chordArray
     }
 }
+
+
+

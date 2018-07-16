@@ -62,7 +62,7 @@ UITextFieldDelegate,UICollectionViewDataSource {
         self.allChordsArray.removeAll()
         
         chordArray_Diatonic3.removeAll()
-        var chords = utils.getScaleChordsFor(baseNoteNum: row, scale: DiatonicScaleChords.MAJOR_3)
+        var chords = utils.getDiatonicChordsFor(baseNoteNum: row, scale: ChordSet.DIATONIC_MAJOR_3)
         for chord in chords{
             print(chord.keyNote1! + chord.cType1!)
             chordArray_Diatonic3.append(chord)
@@ -71,7 +71,7 @@ UITextFieldDelegate,UICollectionViewDataSource {
         
         chordArray_Diatonic4.removeAll()
         chords.removeAll()
-        chords = utils.getScaleChordsFor(baseNoteNum: row, scale: DiatonicScaleChords.MAJOR_4)
+        chords = utils.getDiatonicChordsFor(baseNoteNum: row, scale: ChordSet.DIATONIC_MAJOR_4)
         for chord in chords{
             print(chord.keyNote1! + chord.cType1!)
             chordArray_Diatonic4.append(chord)
@@ -80,7 +80,7 @@ UITextFieldDelegate,UICollectionViewDataSource {
         
         chordArray_NaturalMinor3.removeAll()
         chords.removeAll()
-        chords = utils.getScaleChordsFor(baseNoteNum: row, scale: DiatonicScaleChords.MINOR_NATURAL_3)
+        chords = utils.getDiatonicChordsFor(baseNoteNum: row, scale: ChordSet.DIATONIC_MINOR_NATURAL_3)
         for chord in chords{
             print(chord.keyNote1! + chord.cType1!)
             chordArray_NaturalMinor3.append(chord)
@@ -89,7 +89,7 @@ UITextFieldDelegate,UICollectionViewDataSource {
         
         chordArray_NaturalMinor4.removeAll()
         chords.removeAll()
-        chords = utils.getScaleChordsFor(baseNoteNum: row, scale: DiatonicScaleChords.MINOR_NATURAL_4)
+        chords = utils.getDiatonicChordsFor(baseNoteNum: row, scale: ChordSet.DIATONIC_MINOR_NATURAL_4)
         for chord in chords{
             print(chord.keyNote1! + chord.cType1!)
             chordArray_NaturalMinor4.append(chord)
