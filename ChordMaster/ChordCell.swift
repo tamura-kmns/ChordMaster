@@ -13,6 +13,8 @@ class ChordCell : UICollectionViewCell{
     
     @IBOutlet weak var chordNameLabel: UILabel!
     
+    var chord:Chord
+    
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
     }

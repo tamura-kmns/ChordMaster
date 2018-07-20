@@ -90,8 +90,8 @@ let seventh = ChordType(name:"seventh",
 let minor7 = ChordType(name:"minor7",
                         jName:"セブンス",
                         kName:"セブンス",
-                        symbol:"7",
-                        symbol2:"7",
+                        symbol:"m7",
+                        symbol2:"m7",
                         intvls:[0,3,7,10]
 )
 
