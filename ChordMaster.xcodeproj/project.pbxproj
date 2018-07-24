@@ -7,20 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		684013832103C4D600D7063A /* ChordMaster.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6840137F2103C4D600D7063A /* ChordMaster.xcdatamodeld */; };
+		687846FF2103D5B50094EB78 /* BasicNote+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 687846F92103D5B50094EB78 /* BasicNote+CoreDataClass.swift */; };
+		687847002103D5B50094EB78 /* BasicNote+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 687846FA2103D5B50094EB78 /* BasicNote+CoreDataProperties.swift */; };
+		687847012103D5B50094EB78 /* ChordBase+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 687846FB2103D5B50094EB78 /* ChordBase+CoreDataClass.swift */; };
+		687847022103D5B50094EB78 /* ChordBase+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 687846FC2103D5B50094EB78 /* ChordBase+CoreDataProperties.swift */; };
+		687847032103D5B50094EB78 /* Chord+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 687846FD2103D5B50094EB78 /* Chord+CoreDataClass.swift */; };
+		687847042103D5B50094EB78 /* Chord+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 687846FE2103D5B50094EB78 /* Chord+CoreDataProperties.swift */; };
 		68D2DC7120EFEECF00B225DC /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D2DC7020EFEECF00B225DC /* Const.swift */; };
-		68D2DC7420F20E2A00B225DC /* Chord+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D2DC7220F20E2A00B225DC /* Chord+CoreDataClass.swift */; };
-		68D2DC7520F20E2A00B225DC /* Chord+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D2DC7320F20E2A00B225DC /* Chord+CoreDataProperties.swift */; };
 		68D2DC7720F2A38500B225DC /* ChordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D2DC7620F2A38500B225DC /* ChordCell.swift */; };
 		68FFBEAA20EAB8A600379616 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FFBEA920EAB8A600379616 /* AppDelegate.swift */; };
 		68FFBEAC20EAB8A600379616 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FFBEAB20EAB8A600379616 /* MainViewController.swift */; };
 		68FFBEAF20EAB8A600379616 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68FFBEAD20EAB8A600379616 /* Main.storyboard */; };
-		68FFBEB220EAB8A600379616 /* ChordMaster.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 68FFBEB020EAB8A600379616 /* ChordMaster.xcdatamodeld */; };
 		68FFBEB420EAB8AA00379616 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68FFBEB320EAB8AA00379616 /* Assets.xcassets */; };
 		68FFBEB720EAB8AA00379616 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68FFBEB520EAB8AA00379616 /* LaunchScreen.storyboard */; };
-		68FFBED020EAC29F00379616 /* BasicNotes+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FFBECA20EAC29F00379616 /* BasicNotes+CoreDataClass.swift */; };
-		68FFBED120EAC29F00379616 /* BasicNotes+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FFBECB20EAC29F00379616 /* BasicNotes+CoreDataProperties.swift */; };
-		68FFBED220EAC29F00379616 /* ChordBase+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FFBECC20EAC29F00379616 /* ChordBase+CoreDataClass.swift */; };
-		68FFBED320EAC29F00379616 /* ChordBase+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FFBECD20EAC29F00379616 /* ChordBase+CoreDataProperties.swift */; };
 		68FFBED720EB60AE00379616 /* Chords.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FFBED620EB60AE00379616 /* Chords.swift */; };
 		68FFBED920EB61E200379616 /* Notes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FFBED820EB61E200379616 /* Notes.swift */; };
 		68FFBEDF20EC8C9900379616 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FFBEDE20EC8C9900379616 /* Utils.swift */; };
@@ -28,22 +28,22 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		684013802103C4D600D7063A /* ChordMaster.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ChordMaster.xcdatamodel; sourceTree = "<group>"; };
+		687846F92103D5B50094EB78 /* BasicNote+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BasicNote+CoreDataClass.swift"; sourceTree = "<group>"; };
+		687846FA2103D5B50094EB78 /* BasicNote+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BasicNote+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		687846FB2103D5B50094EB78 /* ChordBase+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChordBase+CoreDataClass.swift"; sourceTree = "<group>"; };
+		687846FC2103D5B50094EB78 /* ChordBase+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChordBase+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		687846FD2103D5B50094EB78 /* Chord+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Chord+CoreDataClass.swift"; sourceTree = "<group>"; };
+		687846FE2103D5B50094EB78 /* Chord+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Chord+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		68D2DC7020EFEECF00B225DC /* Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
-		68D2DC7220F20E2A00B225DC /* Chord+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Chord+CoreDataClass.swift"; sourceTree = "<group>"; };
-		68D2DC7320F20E2A00B225DC /* Chord+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Chord+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		68D2DC7620F2A38500B225DC /* ChordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChordCell.swift; sourceTree = "<group>"; };
 		68FFBEA620EAB8A600379616 /* ChordMaster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChordMaster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		68FFBEA920EAB8A600379616 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		68FFBEAB20EAB8A600379616 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		68FFBEAE20EAB8A600379616 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		68FFBEB120EAB8A600379616 /* ChordMaster.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ChordMaster.xcdatamodel; sourceTree = "<group>"; };
 		68FFBEB320EAB8AA00379616 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		68FFBEB620EAB8AA00379616 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		68FFBEB820EAB8AA00379616 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		68FFBECA20EAC29F00379616 /* BasicNotes+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BasicNotes+CoreDataClass.swift"; sourceTree = "<group>"; };
-		68FFBECB20EAC29F00379616 /* BasicNotes+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BasicNotes+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		68FFBECC20EAC29F00379616 /* ChordBase+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChordBase+CoreDataClass.swift"; sourceTree = "<group>"; };
-		68FFBECD20EAC29F00379616 /* ChordBase+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChordBase+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		68FFBED620EB60AE00379616 /* Chords.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chords.swift; sourceTree = "<group>"; };
 		68FFBED820EB61E200379616 /* Notes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notes.swift; sourceTree = "<group>"; };
 		68FFBEDE20EC8C9900379616 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
@@ -64,12 +64,12 @@
 		68FFBE9D20EAB8A600379616 = {
 			isa = PBXGroup;
 			children = (
-				68D2DC7220F20E2A00B225DC /* Chord+CoreDataClass.swift */,
-				68D2DC7320F20E2A00B225DC /* Chord+CoreDataProperties.swift */,
-				68FFBECA20EAC29F00379616 /* BasicNotes+CoreDataClass.swift */,
-				68FFBECB20EAC29F00379616 /* BasicNotes+CoreDataProperties.swift */,
-				68FFBECC20EAC29F00379616 /* ChordBase+CoreDataClass.swift */,
-				68FFBECD20EAC29F00379616 /* ChordBase+CoreDataProperties.swift */,
+				687846F92103D5B50094EB78 /* BasicNote+CoreDataClass.swift */,
+				687846FA2103D5B50094EB78 /* BasicNote+CoreDataProperties.swift */,
+				687846FB2103D5B50094EB78 /* ChordBase+CoreDataClass.swift */,
+				687846FC2103D5B50094EB78 /* ChordBase+CoreDataProperties.swift */,
+				687846FD2103D5B50094EB78 /* Chord+CoreDataClass.swift */,
+				687846FE2103D5B50094EB78 /* Chord+CoreDataProperties.swift */,
 				68FFBEA820EAB8A600379616 /* ChordMaster */,
 				68FFBEA720EAB8A600379616 /* Products */,
 			);
@@ -98,7 +98,7 @@
 				68FFBEB320EAB8AA00379616 /* Assets.xcassets */,
 				68FFBEB520EAB8AA00379616 /* LaunchScreen.storyboard */,
 				68FFBEB820EAB8AA00379616 /* Info.plist */,
-				68FFBEB020EAB8A600379616 /* ChordMaster.xcdatamodeld */,
+				6840137F2103C4D600D7063A /* ChordMaster.xcdatamodeld */,
 			);
 			path = ChordMaster;
 			sourceTree = "<group>";
@@ -174,19 +174,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				68D2DC7520F20E2A00B225DC /* Chord+CoreDataProperties.swift in Sources */,
 				68FFBEE120ED6AE900379616 /* DBAccess.swift in Sources */,
-				68FFBED120EAC29F00379616 /* BasicNotes+CoreDataProperties.swift in Sources */,
-				68FFBED220EAC29F00379616 /* ChordBase+CoreDataClass.swift in Sources */,
-				68FFBED020EAC29F00379616 /* BasicNotes+CoreDataClass.swift in Sources */,
-				68FFBEB220EAB8A600379616 /* ChordMaster.xcdatamodeld in Sources */,
+				687847042103D5B50094EB78 /* Chord+CoreDataProperties.swift in Sources */,
 				68D2DC7720F2A38500B225DC /* ChordCell.swift in Sources */,
 				68FFBED920EB61E200379616 /* Notes.swift in Sources */,
+				684013832103C4D600D7063A /* ChordMaster.xcdatamodeld in Sources */,
+				687846FF2103D5B50094EB78 /* BasicNote+CoreDataClass.swift in Sources */,
+				687847002103D5B50094EB78 /* BasicNote+CoreDataProperties.swift in Sources */,
 				68FFBED720EB60AE00379616 /* Chords.swift in Sources */,
+				687847012103D5B50094EB78 /* ChordBase+CoreDataClass.swift in Sources */,
+				687847022103D5B50094EB78 /* ChordBase+CoreDataProperties.swift in Sources */,
 				68FFBEAC20EAB8A600379616 /* MainViewController.swift in Sources */,
-				68FFBED320EAC29F00379616 /* ChordBase+CoreDataProperties.swift in Sources */,
+				687847032103D5B50094EB78 /* Chord+CoreDataClass.swift in Sources */,
 				68FFBEAA20EAB8A600379616 /* AppDelegate.swift in Sources */,
-				68D2DC7420F20E2A00B225DC /* Chord+CoreDataClass.swift in Sources */,
 				68FFBEDF20EC8C9900379616 /* Utils.swift in Sources */,
 				68D2DC7120EFEECF00B225DC /* Const.swift in Sources */,
 			);
@@ -388,12 +388,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		68FFBEB020EAB8A600379616 /* ChordMaster.xcdatamodeld */ = {
+		6840137F2103C4D600D7063A /* ChordMaster.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				68FFBEB120EAB8A600379616 /* ChordMaster.xcdatamodel */,
+				684013802103C4D600D7063A /* ChordMaster.xcdatamodel */,
 			);
-			currentVersion = 68FFBEB120EAB8A600379616 /* ChordMaster.xcdatamodel */;
+			currentVersion = 684013802103C4D600D7063A /* ChordMaster.xcdatamodel */;
 			path = ChordMaster.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

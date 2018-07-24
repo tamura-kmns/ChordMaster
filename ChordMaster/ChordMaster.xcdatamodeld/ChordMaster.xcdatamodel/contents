@@ -1,28 +1,32 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14133" systemVersion="17E202" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="BasicNotes" representedClassName="BasicNotes" syncable="YES">
+    <entity name="BasicNote" representedClassName="BasicNote" syncable="YES">
         <attribute name="eNameF" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="eNameS" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="iNameF" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="iNameS" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="jNameF" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="jNameS" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="noteNumber" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="chord" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Chord" inverseName="baseNote" inverseEntity="Chord" syncable="YES"/>
+    </entity>
+    <entity name="Chord" representedClassName="Chord" syncable="YES">
+        <attribute name="num" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="baseNote" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BasicNote" inverseName="chord" inverseEntity="BasicNote" syncable="YES"/>
+        <relationship name="chordBase" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ChordBase" inverseName="chord" inverseEntity="ChordBase" syncable="YES"/>
     </entity>
     <entity name="ChordBase" representedClassName="ChordBase" syncable="YES">
         <attribute name="cName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="intvls" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="jName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="kName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="symbol" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="symbol2" optional="YES" attributeType="String" syncable="YES"/>
-    </entity>
-    <entity name="Chords" representedClassName="Chord" syncable="YES">
-        <attribute name="cType1" optional="YES" attributeType="String" customClassName="String" syncable="YES"/>
-        <attribute name="cType2" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="keyNote1" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="keyNote2" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="notes" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <relationship name="chord" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Chord" inverseName="chordBase" inverseEntity="Chord" syncable="YES"/>
     </entity>
     <elements>
-        <element name="BasicNotes" positionX="-63" positionY="-18" width="128" height="105"/>
-        <element name="ChordBase" positionX="-54" positionY="18" width="128" height="120"/>
-        <element name="Chords" positionX="-36" positionY="54" width="128" height="120"/>
+        <element name="BasicNote" positionX="-63" positionY="-18" width="128" height="165"/>
+        <element name="ChordBase" positionX="-54" positionY="18" width="128" height="150"/>
+        <element name="Chord" positionX="-36" positionY="54" width="128" height="90"/>
     </elements>
 </model>

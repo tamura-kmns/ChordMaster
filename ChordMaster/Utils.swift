@@ -11,8 +11,8 @@ import Foundation
 
 public class Utils: NSObject {
     
-    
-    func getChordNotesFor(baseNote:BasicNote,chordIntvlArray:Array<Int>) -> [[String]]{
+    /*
+    func getChordNotesFor(baseNote:BasicNote_,chordIntvlArray:Array<Int>) -> [[String]]{
         var noteArray: [[String]] = []
         var baseN: Int = 0;
         for note in base12NoteArray {
@@ -27,7 +27,8 @@ public class Utils: NSObject {
         }
         return noteArray;
     }
-    
+    */
+    /*
     func getDiatonicChordsFor(baseNoteNum:Int, chordset:ChordSet)-> [Chord] {
         let dbAccess = DBAccess()
         let maxIndex = base12NoteArray.count
@@ -71,6 +72,7 @@ public class Utils: NSObject {
         }
         return chordArray
     }
+ */
 }
 
 

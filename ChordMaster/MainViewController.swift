@@ -9,13 +9,13 @@
 import UIKit
 import AVFoundation
 
-class MainViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource,
-UITextFieldDelegate,UICollectionViewDataSource,UIGestureRecognizerDelegate {
-
+class MainViewController: UIViewController/*,UIPickerViewDelegate,UIPickerViewDataSource,
+UITextFieldDelegate,UICollectionViewDataSource,UIGestureRecognizerDelegate */{
+/*
     @IBOutlet weak var keyButton: UIButton!
     @IBOutlet weak var keyPickerView: UIPickerView!
     @IBOutlet weak var chordCollectionView: UICollectionView!
-    
+*/
     let engine = AVAudioEngine()
     
     var allChordsArray: [Chord] = []
@@ -30,28 +30,28 @@ UITextFieldDelegate,UICollectionViewDataSource,UIGestureRecognizerDelegate {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        
-        keyPickerView.isHidden = true
-        
         let dbAccess = DBAccess()
-        let chordsArray = dbAccess.db_selectAllChords()
-        for chord:Chord in chordsArray {
-            print (chord.keyNote1! + chord.cType1!)
-
+        
+        let cod:[Chord] = dbAccess.db_selectChordWith(keyNoteNumber:1, chordSymbol:"7")
+        if(cod.count > 0){
+            print("code=")
+            print((cod[0].baseNote?.eNameF)! + (cod[0].chordBase?.symbol)!)
+        }else{
+            print("no code")
         }
+       // keyPickerView.isHidden = true
+
     }
     
-
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+    /*
     @IBAction func showKeyPickerView(_ sender: UIButton) {
         self.keyPickerView.isHidden = false;
     }
-    
+ 
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -65,6 +65,7 @@ UITextFieldDelegate,UICollectionViewDataSource,UIGestureRecognizerDelegate {
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+ 
         let utils = Utils()
         self.allChordsArray.removeAll()
         
@@ -119,20 +120,24 @@ UITextFieldDelegate,UICollectionViewDataSource,UIGestureRecognizerDelegate {
         }
         allChordsArray += chordArray_AllMinor4
         
-    
+ 
         self.chordCollectionView.reloadData()
+
 
     }
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return allChordsArray.count
+        //return allChordsArray.count
+        return 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell:ChordCell = collectionView.dequeueReusableCell(withReuseIdentifier: "ChordCell",
                                                                 for: indexPath)  as! ChordCell
-        cell.chord = self.allChordsArray[indexPath.row]
+        
+        //cell.chord = self.allChordsArray[indexPath.row]
+ 
         cell.backgroundColor = UIColor(red: CGFloat(drand48()),
                                        green: CGFloat(drand48()),
                                        blue: CGFloat(drand48()),
@@ -144,7 +149,6 @@ UITextFieldDelegate,UICollectionViewDataSource,UIGestureRecognizerDelegate {
             action: #selector(tapped(_:)))
         
         cell.addGestureRecognizer(tapGesture)
-
         return cell
     }
     
@@ -153,13 +157,12 @@ UITextFieldDelegate,UICollectionViewDataSource,UIGestureRecognizerDelegate {
         
         print("tapped,,,")
         
-        playChord(chord: (sender.view as! ChordCell).chord)
+        //playChord(chord: (sender.view as! ChordCell).chord)
 
     }
     
     func playChord(chord:Chord){
-        
-        /**
+
         let player1 = AVAudioPlayerNode()
         let player2 = AVAudioPlayerNode()
         if let path1 = Bundle.main.path(forResource: "do", ofType: "mp3"), let path2 = Bundle.main.path(forResource: "mi", ofType: "mp3") {
@@ -178,13 +181,8 @@ UITextFieldDelegate,UICollectionViewDataSource,UIGestureRecognizerDelegate {
                 player2.play()
             }
         }
-       **/
-        
-        
-    }
+       */
     
-
-
 
 }
 

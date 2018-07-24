@@ -18,9 +18,14 @@ let jNameFlatArray = ["ハ","嬰ハ","二","変ホ","ホ","へ","嬰へ","ト","
 
 //let noteNameArray = [("C","ド","ハ"),("C#","ド#","嬰ハ")]
 
+////b12noteの配列////
+var base12NoteArray = [BasicNote]()
+///全note配列
+//var allNotesArray = [Note]();
 
+/**
 //12音用struct
-struct BasicNote{
+struct Basic_Note{
     var eName:[String]
     var iName:[String] //italian name ドレミ
     var jName:[String] //和名
@@ -30,11 +35,12 @@ struct BasicNote{
         iName = [iNameSharpArray[num],iNameFlatArray[num]]
         jName = [jNameSharpArray[num],jNameFlatArray[num]]
     }
-}
+}**/
 
 //各音struct
+/*
 struct Note {
-    let basicNote:BasicNote
+    let basicNote:Basic_Note
     let noteNumber:Int
     let c:Int
     let yc:Int //yamaha
@@ -75,12 +81,9 @@ struct Note {
         basicNote = base12NoteArray[n]
     }// init
 }
+*/
 
 
-////b12noteの配列////
-var base12NoteArray = [BasicNote]()
-///全note配列
-var allNotesArray = [Note]();
 
 
 //音程テーブル　半音の個数に対応

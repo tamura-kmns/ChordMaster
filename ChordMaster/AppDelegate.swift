@@ -14,22 +14,30 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        init12Notes()
-        initAllNotes()
         
         let dbAccess = DBAccess()
-        let chordsArray = dbAccess.db_selectAllChords()
-        if (chordsArray.count < 1){
-            print("Start generating chord data")
-            generateChordTable()
+        let chordCount:Int? = dbAccess.db_countChords() //TODO コードのカウントでいいか？
+        
+        if let count = chordCount {
+            print("y")
+            
+            if(count == 0){
+             print("Start generating db data")
+             self.initBasicNote()
+             self.initChordBase()
+             self.generateChordTable()
+             
+            }else{
+              print("db data already exists.Skip generating data")
+            }
+ 
         }else{
-            print("Chord data already exists.Skip generating chords")
+           print("db error..get chord count")
         }
-        
-        
+ 
         
         return true
     }
@@ -57,30 +65,56 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Saves changes in the application's managed object context before the application terminates.
         self.saveContext()
     }
-    
-    
-    
+
     //12音生成
-    func init12Notes(){
+    
+    func initBasicNote(){
+     let dbAccess = DBAccess()
         for i in 0..<12 {
-            base12NoteArray.append(BasicNote (num: i))
+            dbAccess.db_insertBaseNote(eNameF:eNameSharpArray[i],
+                                       eNameS:eNameFlatArray[i],
+                                       iNameF:iNameSharpArray[i],
+                                       iNameS:iNameFlatArray[i],
+                                       jNameF:jNameSharpArray[i],
+                                       jNameS:jNameFlatArray[i],
+                                       noteNumber:i)
         }
     }
+ 
     //全noteテーブル(鍵盤)生成
+    /*
     func initAllNotes() {
         for i in 0...127 {
             allNotesArray.append(Note(noteNum: i) )
         }
     }
+    */
+ 
+    func initChordBase(){
+        let dbAccess = DBAccess()
+        for chordType:ChordType in chordTypes {
+            dbAccess.db_insertChordBase(name:chordType.name,
+                                       jName:chordType.jName,
+                                       kName:chordType.kName,
+                                       symbol:chordType.symbol,
+                                       symbol2:chordType.symbol2,
+                                       intvls:chordType.intvls)
+
+        }
+    }
+    
     
     func generateChordTable(){
         let dbAccess = DBAccess()
-        for baseNote in base12NoteArray {
-            for (_,val) in chordTypes {
-                dbAccess.db_insertChord(basicNote:baseNote,chordType:val)
+        var chordNum:Int = 0
+        for i in 0..<12 {
+            for chordType in chordTypes {
+                dbAccess.db_insertChord(chordNum:chordNum, noteNumber:i, chordSymbol:chordType.symbol)
+                chordNum += 1
             }
         }
     }
+
 
     // MARK: - Core Data stack
 

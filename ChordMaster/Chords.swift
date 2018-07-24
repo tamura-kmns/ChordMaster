@@ -13,7 +13,8 @@ class ChordType {
     let name:String
     let jName:String //和
     let kName:String //カナ
-    let symbol:[String] //記号
+    let symbol:String //記号
+    let symbol2:String //記号
     let intvls:Array<Int> //ベース音からのinterval 半音数
     
     init(name:String,
@@ -26,7 +27,8 @@ class ChordType {
         self.name = name
         self.jName = jName
         self.kName = kName
-        self.symbol = [symbol,symbol2]
+        self.symbol = symbol
+        self.symbol2 = symbol2
         self.intvls = intvls
     }
 }
@@ -128,22 +130,20 @@ let minormaj7 = ChordType(name:"minormaj7",
 )
 
 
-
-let chordTypes = ["major":major,
-                  "minor":minor,
-                  "seventh":seventh,
-                  "minor7":minor7,
-                  "dim":dim,
-                  "aug":augment,
-                  "sus4":sus4,
-                  "maj7":maj7,
-                  "halfdim":halfdim,
-                  "dim7":dim7,
-                  "maj7s5":maj7s5,
-                  "minormaj7":minormaj7
-]
-
-
+//コードタイプ配列
+let chordTypes = [major,
+                  minor,
+                  seventh,
+                  minor7,
+                  dim,
+                  augment,
+                  sus4,
+                  maj7,
+                  halfdim,
+                  dim7,
+                  maj7s5,
+                  minormaj7
+                 ]
 
 
 //////////////////////////////////////

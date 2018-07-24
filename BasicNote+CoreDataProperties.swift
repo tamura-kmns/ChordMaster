@@ -1,5 +1,5 @@
 //
-//  ChordBase+CoreDataProperties.swift
+//  BasicNote+CoreDataProperties.swift
 //  ChordMaster
 //
 //  Created by KatsuhikoTamura on 2018/07/25.
@@ -11,24 +11,25 @@ import Foundation
 import CoreData
 
 
-extension ChordBase {
+extension BasicNote {
 
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<ChordBase> {
-        return NSFetchRequest<ChordBase>(entityName: "ChordBase")
+    @nonobjc public class func fetchRequest() -> NSFetchRequest<BasicNote> {
+        return NSFetchRequest<BasicNote>(entityName: "BasicNote")
     }
 
-    @NSManaged public var cName: String?
-    @NSManaged public var intvls: [Int]?
-    @NSManaged public var kName: String?
-    @NSManaged public var symbol: String?
-    @NSManaged public var symbol2: String?
-    @NSManaged public var jName: String?
+    @NSManaged public var eNameF: String?
+    @NSManaged public var eNameS: String?
+    @NSManaged public var iNameF: String?
+    @NSManaged public var iNameS: String?
+    @NSManaged public var jNameF: String?
+    @NSManaged public var jNameS: String?
+    @NSManaged public var noteNumber: Int16
     @NSManaged public var chord: NSSet?
 
 }
 
 // MARK: Generated accessors for chord
-extension ChordBase {
+extension BasicNote {
 
     @objc(addChordObject:)
     @NSManaged public func addToChord(_ value: Chord)
