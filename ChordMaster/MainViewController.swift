@@ -9,13 +9,13 @@
 import UIKit
 import AVFoundation
 
-class MainViewController: UIViewController/*,UIPickerViewDelegate,UIPickerViewDataSource,
-UITextFieldDelegate,UICollectionViewDataSource,UIGestureRecognizerDelegate */{
-/*
+class MainViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource,
+UITextFieldDelegate,UICollectionViewDataSource,UIGestureRecognizerDelegate {
+
     @IBOutlet weak var keyButton: UIButton!
     @IBOutlet weak var keyPickerView: UIPickerView!
     @IBOutlet weak var chordCollectionView: UICollectionView!
-*/
+
     let engine = AVAudioEngine()
     
     var allChordsArray: [Chord] = []
@@ -39,7 +39,7 @@ UITextFieldDelegate,UICollectionViewDataSource,UIGestureRecognizerDelegate */{
         }else{
             print("no code")
         }
-       // keyPickerView.isHidden = true
+        keyPickerView.isHidden = true
 
     }
     
@@ -47,7 +47,7 @@ UITextFieldDelegate,UICollectionViewDataSource,UIGestureRecognizerDelegate */{
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    /*
+    
     @IBAction func showKeyPickerView(_ sender: UIButton) {
         self.keyPickerView.isHidden = false;
     }
@@ -65,7 +65,7 @@ UITextFieldDelegate,UICollectionViewDataSource,UIGestureRecognizerDelegate */{
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
- 
+ /****
         let utils = Utils()
         self.allChordsArray.removeAll()
         
@@ -122,7 +122,7 @@ UITextFieldDelegate,UICollectionViewDataSource,UIGestureRecognizerDelegate */{
         
  
         self.chordCollectionView.reloadData()
-
+****/
 
     }
     
@@ -137,7 +137,7 @@ UITextFieldDelegate,UICollectionViewDataSource,UIGestureRecognizerDelegate */{
                                                                 for: indexPath)  as! ChordCell
         
         //cell.chord = self.allChordsArray[indexPath.row]
- 
+ /**
         cell.backgroundColor = UIColor(red: CGFloat(drand48()),
                                        green: CGFloat(drand48()),
                                        blue: CGFloat(drand48()),
@@ -149,6 +149,8 @@ UITextFieldDelegate,UICollectionViewDataSource,UIGestureRecognizerDelegate */{
             action: #selector(tapped(_:)))
         
         cell.addGestureRecognizer(tapGesture)
+        **/
+        
         return cell
     }
     
@@ -181,8 +183,8 @@ UITextFieldDelegate,UICollectionViewDataSource,UIGestureRecognizerDelegate */{
                 player2.play()
             }
         }
-       */
-    
+       
+    }
 
 }
 
