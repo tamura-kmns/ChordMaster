@@ -11,6 +11,9 @@ import Foundation
 
 let NUMBER_OF_KEYS = 12
 
+//C-3
+let BASE_C_NUMBER = 36
+
 
 enum ChordSet{
     case DIATONIC_MAJOR_3

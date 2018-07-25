@@ -28,51 +28,50 @@ public class Utils: NSObject {
         return noteArray;
     }
     */
-    /*
-    func getDiatonicChordsFor(baseNoteNum:Int, chordset:ChordSet)-> [Chord] {
+    
+    func getChordsFor(baseNoteNum:Int, chordset:ChordSet)-> [Chord] {
         let dbAccess = DBAccess()
-        let maxIndex = base12NoteArray.count
+        let maxIndex = NUMBER_OF_KEYS
         var chordArray: [Chord] = []
-        var scaleArray:[(Int,ChordType)] = []
+        var chordSetArray:[(Int,ChordType)] = []
         
         switch (chordset){
         case .DIATONIC_MAJOR_3:
-           scaleArray = majorScaleTriadChords
+           chordSetArray = majorScaleTriadChords
         case .DIATONIC_MAJOR_4:
-            scaleArray = majorScale4NotesChords
+            chordSetArray = majorScale4NotesChords
         case .DIATONIC_MINOR_NATURAL_3:
-            scaleArray = minorNaturalTriadChords
+            chordSetArray = minorNaturalTriadChords
         case .DIATONIC_MINOR_HARMONIC_3:
-            scaleArray = minorHarmonicTriadChords
+            chordSetArray = minorHarmonicTriadChords
         case .DIATONIC_MINOR_MELODIC_3:
-            scaleArray = minorMelodicTriadChords
+            chordSetArray = minorMelodicTriadChords
         case .DIATONIC_MINOR_NATURAL_4:
-            scaleArray = minorNatural4NotesChords
+            chordSetArray = minorNatural4NotesChords
         case .DIATONIC_MINOR_HARMONIC_4:
-            scaleArray = minorHarmonic4NotesChords
+            chordSetArray = minorHarmonic4NotesChords
         case .DIATONIC_MINOR_MELODIC_4:
-            scaleArray = minorMelodic4NotesChords
+            chordSetArray = minorMelodic4NotesChords
         case .DIATONIC_MINOR_ALL_3:
-            scaleArray = minorAllTriadChords
+            chordSetArray = minorAllTriadChords
         case .DIATONIC_MINOR_ALL_4:
-            scaleArray = minorAll4NotesChords
+            chordSetArray = minorAll4NotesChords
         case .SUBDOMINANT_MINOR:
             break
         }
         
-        
-        for (chordNoteNum,chordType) in scaleArray {
-            var note = base12NoteArray[(baseNoteNum + chordNoteNum) % maxIndex]
-            
-            let chords:Array<Chord> = dbAccess.db_selectChordWith(keyName: note.eName[0],
-                                                                  chordType: chordType.symbol[0])
+        for (chordNoteNum,chordType) in chordSetArray {
+            let noteNum = (baseNoteNum + chordNoteNum) % maxIndex
+            let chords:Array<Chord> = dbAccess.db_selectChordWith(keyNoteNumber: noteNum,
+                                                                  chordSymbol: chordType.symbol)
             if(chords.count > 0){
                 chordArray.append(chords[0]) //TODO optional
             }
         }
+        
         return chordArray
     }
- */
+
 }
 
 
