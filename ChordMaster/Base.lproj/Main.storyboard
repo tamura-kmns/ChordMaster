@@ -26,6 +26,47 @@
                                     <action selector="showKeyPickerView:" destination="BYZ-38-t0r" eventType="touchUpInside" id="y7n-LH-Teb"/>
                                 </connections>
                             </button>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="bqj-Yi-MEa">
+                                <rect key="frame" x="4" y="241" width="367" height="229"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="26s-pf-hFr">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ChordBarCell" id="vaH-61-pPI" customClass="ChordBarCell" customModule="ChordMaster" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="68" height="25"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="68" height="25"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fxg-59-OQx">
+                                                    <rect key="frame" x="11" y="2" width="42" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="fxg-59-OQx" firstAttribute="centerY" secondItem="vaH-61-pPI" secondAttribute="centerY" id="7gA-ec-5Gy"/>
+                                            <constraint firstItem="fxg-59-OQx" firstAttribute="centerX" secondItem="vaH-61-pPI" secondAttribute="centerX" id="8tt-QE-skN"/>
+                                        </constraints>
+                                        <size key="customSize" width="68" height="25"/>
+                                        <connections>
+                                            <outlet property="chordNameLabel" destination="fxg-59-OQx" id="5D8-8e-WXu"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="HzW-HL-IKe"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="JqT-ct-y9P"/>
+                                </connections>
+                            </collectionView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Pa5-U7-ATO">
                                 <rect key="frame" x="16" y="486" width="343" height="159"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -38,21 +79,25 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ChordCell" id="jgP-37-z9S" customClass="ChordCell" customModule="ChordMaster">
-                                        <rect key="frame" x="0.0" y="0.0" width="59" height="25"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="68" height="25"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="59" height="25"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="68" height="25"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vE7-34-LhU" userLabel="ChordNameLabel">
-                                                    <rect key="frame" x="3" y="3" width="52" height="18"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vE7-34-LhU" userLabel="ChordNameLabel">
+                                                    <rect key="frame" x="15.5" y="3" width="37.5" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                         </view>
+                                        <constraints>
+                                            <constraint firstItem="vE7-34-LhU" firstAttribute="centerY" secondItem="jgP-37-z9S" secondAttribute="centerY" id="48j-91-UYS"/>
+                                            <constraint firstItem="vE7-34-LhU" firstAttribute="centerX" secondItem="jgP-37-z9S" secondAttribute="centerX" id="C3c-3u-Nc7"/>
+                                        </constraints>
+                                        <size key="customSize" width="68" height="25"/>
                                         <connections>
                                             <outlet property="chordNameLabel" destination="vE7-34-LhU" id="eEN-L3-tcq"/>
                                         </connections>
@@ -62,27 +107,6 @@
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="xvF-JV-YMm"/>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="AhD-b1-Gyy"/>
                                 </connections>
-                            </collectionView>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="bqj-Yi-MEa">
-                                <rect key="frame" x="4" y="241" width="367" height="229"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="26s-pf-hFr">
-                                    <size key="itemSize" width="50" height="50"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="vaH-61-pPI">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </view>
-                                    </collectionViewCell>
-                                </cells>
                             </collectionView>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wIF-nA-Rnn">
                                 <rect key="frame" x="123" y="91" width="128" height="74"/>
@@ -97,6 +121,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="chordBarCollectionView" destination="bqj-Yi-MEa" id="ZVx-RK-HuT"/>
                         <outlet property="chordCollectionView" destination="Pa5-U7-ATO" id="oxM-X8-giT"/>
                         <outlet property="keyButton" destination="aeW-AF-W0Y" id="qZs-bY-qWV"/>
                         <outlet property="keyPickerView" destination="wIF-nA-Rnn" id="2I0-D7-dyl"/>
