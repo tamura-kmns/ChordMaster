@@ -15,6 +15,7 @@ class ChordBarCell : UICollectionViewCell{
      @IBOutlet weak var chordNameLabel: UILabel!
 
     var chord:Chord? = nil
+    var indexPath:IndexPath? = nil
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!

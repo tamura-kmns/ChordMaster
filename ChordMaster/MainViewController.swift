@@ -36,17 +36,10 @@ UITextFieldDelegate,UICollectionViewDataSource,UIGestureRecognizerDelegate,AVAud
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        let dbAccess = DBAccess()
         
-        /**test code
-         let cod:[Chord] = dbAccess.db_selectChordWith(keyNoteNumber:1, chordSymbol:"7")
-         if(cod.count > 0){
-         print("code=")
-         print((cod[0].baseNote?.eNameF)! + (cod[0].chordBase?.symbol)!)
-         }else{
-         print("no code")
-         }
-         ***/
+        let longPressGesture = UILongPressGestureRecognizer(target: self,
+                                                            action:#selector(self.handleLongGesture(gesture:)))
+        chordBarCollectionView.addGestureRecognizer(longPressGesture)
         
         keyPickerView.isHidden = true
         
@@ -171,37 +164,24 @@ UITextFieldDelegate,UICollectionViewDataSource,UIGestureRecognizerDelegate,AVAud
         if(collectionView == self.chordCollectionView){
             let cell:ChordCell = collectionView.dequeueReusableCell(withReuseIdentifier: "ChordCell",
                                                                     for: indexPath)  as! ChordCell
-            
             switch(indexPath.section){
             case 0:
                 cell.chord = self.chordArray_Diatonic3[indexPath.row]
                 
-                cell.backgroundColor = UIColor(red: CGFloat(drand48()),
-                                               green: CGFloat(drand48()),
-                                               blue: CGFloat(drand48()),
-                                               alpha: 1.0)
+                cell.backgroundColor = UIColor.cyan
             case 1:
                 cell.chord = self.chordArray_Diatonic4[indexPath.row]
                 
-                cell.backgroundColor = UIColor(red: CGFloat(drand48()),
-                                               green: CGFloat(drand48()),
-                                               blue: CGFloat(drand48()),
-                                               alpha: 1.0)
+                cell.backgroundColor = UIColor.blue
                 
             case 2:
                 cell.chord = self.chordArray_AllMinor3[indexPath.row]
                 
-                cell.backgroundColor = UIColor(red: CGFloat(drand48()),
-                                               green: CGFloat(drand48()),
-                                               blue: CGFloat(drand48()),
-                                               alpha: 1.0)
+                cell.backgroundColor = UIColor.yellow
             case 3:
                 cell.chord = self.chordArray_AllMinor4[indexPath.row]
                 
-                cell.backgroundColor = UIColor(red: CGFloat(drand48()),
-                                               green: CGFloat(drand48()),
-                                               blue: CGFloat(drand48()),
-                                               alpha: 1.0)
+                cell.backgroundColor = UIColor.orange
                 
             default:
                 break;
@@ -212,12 +192,12 @@ UITextFieldDelegate,UICollectionViewDataSource,UIGestureRecognizerDelegate,AVAud
             let doubleTap = UITapGestureRecognizer(target: self, action: #selector(doubleTapped(_:)))
             doubleTap.numberOfTapsRequired = 2
             cell.addGestureRecognizer(doubleTap)
-            
+            /*
             let singleTap = UITapGestureRecognizer(target: self, action: #selector(singleTapped(_:)))
             singleTap.numberOfTapsRequired = 1
             singleTap.require(toFail: doubleTap)
             cell.addGestureRecognizer(singleTap)
-            
+            */
             return cell
         }
         ///////////////////////////////////////////////////////////////////////////////////////////////
@@ -225,12 +205,15 @@ UITextFieldDelegate,UICollectionViewDataSource,UIGestureRecognizerDelegate,AVAud
 
             let cell:ChordBarCell = collectionView.dequeueReusableCell(withReuseIdentifier: "ChordBarCell",
                                                                     for: indexPath)  as! ChordBarCell
-            cell.backgroundColor = UIColor(red: CGFloat(drand48()),
-                                           green: CGFloat(drand48()),
-                                           blue: CGFloat(drand48()),
-                                           alpha: 1.0)
+            cell.indexPath = indexPath
+            cell.backgroundColor = UIColor.green
             cell.chord = self.chordBarArray[indexPath.row]
             cell.chordNameLabel.text = (cell.chord?.baseNote?.eNameF)! + (cell.chord?.chordBase?.symbol)!
+            
+            let doubleTap_BarChord = UITapGestureRecognizer(target: self, action: #selector(doubleTapped_BarChord(_:)))
+            doubleTap_BarChord.numberOfTapsRequired = 2
+            cell.addGestureRecognizer(doubleTap_BarChord)
+            
             return cell
         }
 
@@ -256,10 +239,16 @@ UITextFieldDelegate,UICollectionViewDataSource,UIGestureRecognizerDelegate,AVAud
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize{
         return CGSize(width: collectionView.bounds.width, height: 20)
     }
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        moveItemAt sourceIndexPath: IndexPath,
+                        to destinationIndexPath: IndexPath) {
+        
+        let tempNumber = self.chordBarArray.remove(at: sourceIndexPath.item)
+        self.chordBarArray.insert(tempNumber, at: destinationIndexPath.item)
+    }
 
-    
-    
-    
+
     @objc func singleTapped(_ sender: UITapGestureRecognizer){
         
         print("tapped,,,")
@@ -274,6 +263,36 @@ UITextFieldDelegate,UICollectionViewDataSource,UIGestureRecognizerDelegate,AVAud
         chordBarArray.append((sender.view as! ChordCell).chord!)
         chordBarCollectionView.reloadData()
         
+    }
+    
+    @objc func doubleTapped_BarChord(_ sender: UITapGestureRecognizer){
+        
+        chordBarCollectionView.deleteItems(at: [(sender.view as! ChordBarCell).indexPath!])
+        self.chordBarArray.remove(at: ((sender.view as! ChordBarCell).indexPath?.row)!)
+        //chordBarCollectionView.reloadData()
+        
+    }
+    
+    @objc func handleLongGesture(gesture: UILongPressGestureRecognizer) {
+        
+        switch(gesture.state) {
+            
+        case UIGestureRecognizerState.began:
+            guard let selectedIndexPath = chordBarCollectionView.indexPathForItem(
+                at: gesture.location(in: chordBarCollectionView)) else {
+                    break
+            }
+            chordBarCollectionView.beginInteractiveMovementForItem(at: selectedIndexPath)
+            
+        case UIGestureRecognizerState.changed:
+            chordBarCollectionView.updateInteractiveMovementTargetPosition(gesture.location(in: gesture.view!))
+            
+        case UIGestureRecognizerState.ended:
+            chordBarCollectionView.endInteractiveMovement()
+            
+        default:
+            chordBarCollectionView.cancelInteractiveMovement()
+        }
     }
     
     
