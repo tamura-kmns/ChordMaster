@@ -75,4 +75,12 @@ public class Utils: NSObject {
 }
 
 
+//////////////////////////// extension ////////////////////////////////////
+extension Array {
+    mutating func arraySwap(index1: Int, index2: Int) {
+        self.swapAt(index1, index2)
+    }
+}
+
+
 

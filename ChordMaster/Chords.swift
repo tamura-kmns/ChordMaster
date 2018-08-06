@@ -166,7 +166,7 @@ let minorHarmonic4NotesChords = [(0,minormaj7),(2,halfdim),(3,maj7s5),(5,minor7)
 let minorMelodicTriadChords = [(0,minor),(2,minor),(3,augment),(5,major),(7,major),(9,dim),(11,dim)]
 let minorMelodic4NotesChords = [(0,minormaj7),(2,minor7),(3,maj7s5),(5,seventh),(7,seventh),(9,halfdim),(11,halfdim)]
 
-let minorAllTriadChords = [(0,minor),(2,minor),(3,augment),(3,major),(5,major),(5,minor),(7,major),(7,minor),(9,dim),(9,major),(11,dim),(11,major)]
+let minorAllTriadChords = [(0,minor),(2,dim),(2,minor),(3,augment),(3,major),(5,major),(5,minor),(7,major),(7,minor),(9,dim),(9,major),(11,dim),(11,major)]
 let minorAll4NotesChords = [(0,minor7),(0,minormaj7),(2,halfdim),(2,minor7),(3,maj7),(3,maj7s5),(5,minor7),(5,seventh),(5,minor),(7,seventh),(7,minor7),(8,maj7),(9,halfdim),(10,seventh),(11,dim7),(11,halfdim)]
 
 

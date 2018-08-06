@@ -83,7 +83,6 @@ UITextFieldDelegate,UICollectionViewDataSource,UIGestureRecognizerDelegate,AVAud
         chords.removeAll()
         chords = utils.getChordsFor(baseNoteNum: row, chordset: ChordSet.DIATONIC_MAJOR_4)
         for chord in chords{
-            //print((chord.baseNote?.eNameF)! + (chord.chordBase?.symbol)!)
             chordArray_Diatonic4.append(chord)
         }
         //allChordsArray += chordArray_Diatonic4
@@ -110,7 +109,6 @@ UITextFieldDelegate,UICollectionViewDataSource,UIGestureRecognizerDelegate,AVAud
         chords.removeAll()
         chords = utils.getChordsFor(baseNoteNum: row, chordset: ChordSet.DIATONIC_MINOR_ALL_3)
         for chord in chords{
-            //print((chord.baseNote?.eNameF)! + (chord.chordBase?.symbol)!)
             chordArray_AllMinor3.append(chord)
         }
         //allChordsArray += chordArray_AllMinor3
@@ -119,7 +117,6 @@ UITextFieldDelegate,UICollectionViewDataSource,UIGestureRecognizerDelegate,AVAud
         chords.removeAll()
         chords = utils.getChordsFor(baseNoteNum: row, chordset: ChordSet.DIATONIC_MINOR_ALL_4)
         for chord in chords{
-            //print((chord.baseNote?.eNameF)! + (chord.chordBase?.symbol)!)
             chordArray_AllMinor4.append(chord)
         }
         // allChordsArray += chordArray_AllMinor4
@@ -192,12 +189,12 @@ UITextFieldDelegate,UICollectionViewDataSource,UIGestureRecognizerDelegate,AVAud
             let doubleTap = UITapGestureRecognizer(target: self, action: #selector(doubleTapped(_:)))
             doubleTap.numberOfTapsRequired = 2
             cell.addGestureRecognizer(doubleTap)
-            /*
+            
             let singleTap = UITapGestureRecognizer(target: self, action: #selector(singleTapped(_:)))
             singleTap.numberOfTapsRequired = 1
             singleTap.require(toFail: doubleTap)
             cell.addGestureRecognizer(singleTap)
-            */
+            
             return cell
         }
         ///////////////////////////////////////////////////////////////////////////////////////////////
@@ -213,6 +210,12 @@ UITextFieldDelegate,UICollectionViewDataSource,UIGestureRecognizerDelegate,AVAud
             let doubleTap_BarChord = UITapGestureRecognizer(target: self, action: #selector(doubleTapped_BarChord(_:)))
             doubleTap_BarChord.numberOfTapsRequired = 2
             cell.addGestureRecognizer(doubleTap_BarChord)
+            
+            let singleTap =
+                UITapGestureRecognizer(target: self, action: #selector(singleTapped_BarChord(_:)))
+            singleTap.numberOfTapsRequired = 1
+            singleTap.require(toFail: doubleTap_BarChord)
+            cell.addGestureRecognizer(singleTap)
             
             return cell
         }
@@ -250,25 +253,27 @@ UITextFieldDelegate,UICollectionViewDataSource,UIGestureRecognizerDelegate,AVAud
 
 
     @objc func singleTapped(_ sender: UITapGestureRecognizer){
-        
-        print("tapped,,,")
-        
         playChord(chord: (sender.view as! ChordCell).chord!)
-        
+  
     }
     
     @objc func doubleTapped(_ sender: UITapGestureRecognizer){
+        /*chordBarArray.append((sender.view as! ChordCell).chord!)
+        chordBarCollectionView.reloadData()*/
+        inverse_high(chord: &(sender.view as! ChordCell).chord! )
         
-        print("double tapped,,,")
-        chordBarArray.append((sender.view as! ChordCell).chord!)
-        chordBarCollectionView.reloadData()
+    }
+    
+    @objc func singleTapped_BarChord(_ sender: UITapGestureRecognizer){
+        playChord(chord: (sender.view as! ChordBarCell).chord!)
         
     }
     
     @objc func doubleTapped_BarChord(_ sender: UITapGestureRecognizer){
         
-        chordBarCollectionView.deleteItems(at: [(sender.view as! ChordBarCell).indexPath!])
         self.chordBarArray.remove(at: ((sender.view as! ChordBarCell).indexPath?.row)!)
+        chordBarCollectionView.deleteItems(at: [(sender.view as! ChordBarCell).indexPath!])
+        
         //chordBarCollectionView.reloadData()
         
     }
@@ -316,6 +321,24 @@ UITextFieldDelegate,UICollectionViewDataSource,UIGestureRecognizerDelegate,AVAud
         for player in audioPlayers {
             player.play()
         }
+        
+    }
+    
+    func inverse_low( chord:inout Chord){
+        let noteCount:Int = (chord.chordBase?.intvls?.count)!
+        for i in 0..<noteCount-1 {
+            chord.chordBase?.intvls?.arraySwap(index1: i, index2: i+1)
+        }
+        chord.chordBase?.intvls?[noteCount-1] = (chord.chordBase?.intvls?[noteCount-1])! - 12
+    
+    }
+    
+    func inverse_high( chord:inout Chord){
+        let noteCount:Int = (chord.chordBase?.intvls?.count)!
+        for i in (1..<noteCount-1).reversed() {
+            chord.chordBase?.intvls?.arraySwap(index1: i, index2: i+1)
+        }
+        chord.chordBase?.intvls?[0] = (chord.chordBase?.intvls?[0])! + 12
         
     }
     

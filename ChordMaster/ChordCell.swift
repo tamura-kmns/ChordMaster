@@ -9,8 +9,7 @@
 import UIKit
 
 class ChordCell : UICollectionViewCell{
-    
-    
+
     @IBOutlet weak var chordNameLabel: UILabel!
     
     var chord:Chord? = nil
