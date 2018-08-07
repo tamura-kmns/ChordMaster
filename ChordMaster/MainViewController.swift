@@ -18,6 +18,8 @@ UITextFieldDelegate,UICollectionViewDataSource,UIGestureRecognizerDelegate,AVAud
     
     @IBOutlet weak var chordBarCollectionView: UICollectionView!
     
+    let utils = Utils()
+    
     let engine = AVAudioEngine()
     
     let NUMBER_OF_CHORD_GROUPS = 5
@@ -68,7 +70,7 @@ UITextFieldDelegate,UICollectionViewDataSource,UIGestureRecognizerDelegate,AVAud
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
-        let utils = Utils()
+        
         self.allChordsArray.removeAll()
         
         chordArray_Diatonic3.removeAll()
@@ -159,6 +161,7 @@ UITextFieldDelegate,UICollectionViewDataSource,UIGestureRecognizerDelegate,AVAud
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         if(collectionView == self.chordCollectionView){
+            
             let cell:ChordCell = collectionView.dequeueReusableCell(withReuseIdentifier: "ChordCell",
                                                                     for: indexPath)  as! ChordCell
             switch(indexPath.section){
@@ -194,6 +197,19 @@ UITextFieldDelegate,UICollectionViewDataSource,UIGestureRecognizerDelegate,AVAud
             singleTap.numberOfTapsRequired = 1
             singleTap.require(toFail: doubleTap)
             cell.addGestureRecognizer(singleTap)
+            
+            let longPress = UILongPressGestureRecognizer(target: self, action: #selector(logPressedChordCell(_:)))
+            cell.addGestureRecognizer(longPress)
+    
+            let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(swipedChordCell(_:)))
+            rightSwipe.direction = .right
+            cell.addGestureRecognizer(rightSwipe)
+            
+            let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(swipedChordCell(_:)))
+            leftSwipe.direction = .left
+            cell.addGestureRecognizer(leftSwipe)
+            
+            
             
             return cell
         }
@@ -258,10 +274,8 @@ UITextFieldDelegate,UICollectionViewDataSource,UIGestureRecognizerDelegate,AVAud
     }
     
     @objc func doubleTapped(_ sender: UITapGestureRecognizer){
-        /*chordBarArray.append((sender.view as! ChordCell).chord!)
-        chordBarCollectionView.reloadData()*/
-        inverse_high(chord: &(sender.view as! ChordCell).chord! )
-        
+        chordBarArray.append((sender.view as! ChordCell).chord!)
+        chordBarCollectionView.reloadData()
     }
     
     @objc func singleTapped_BarChord(_ sender: UITapGestureRecognizer){
@@ -277,6 +291,24 @@ UITextFieldDelegate,UICollectionViewDataSource,UIGestureRecognizerDelegate,AVAud
         //chordBarCollectionView.reloadData()
         
     }
+    
+    @objc func logPressedChordCell(_ sender: UILongPressGestureRecognizer){
+        
+        
+    }
+    
+    @objc func swipedChordCell(_ sender: UISwipeGestureRecognizer) {
+        
+        if sender.direction == .right {
+            print("Right")
+            utils.inverse_high(chord: &(sender.view as! ChordCell).chord! )
+        }
+        else if sender.direction == .left {
+            print("Left")
+            utils.inverse_low(chord: &(sender.view as! ChordCell).chord! )
+        }
+    }
+    
     
     @objc func handleLongGesture(gesture: UILongPressGestureRecognizer) {
         
@@ -324,23 +356,9 @@ UITextFieldDelegate,UICollectionViewDataSource,UIGestureRecognizerDelegate,AVAud
         
     }
     
-    func inverse_low( chord:inout Chord){
-        let noteCount:Int = (chord.chordBase?.intvls?.count)!
-        for i in 0..<noteCount-1 {
-            chord.chordBase?.intvls?.arraySwap(index1: i, index2: i+1)
-        }
-        chord.chordBase?.intvls?[noteCount-1] = (chord.chordBase?.intvls?[noteCount-1])! - 12
     
-    }
     
-    func inverse_high( chord:inout Chord){
-        let noteCount:Int = (chord.chordBase?.intvls?.count)!
-        for i in (1..<noteCount-1).reversed() {
-            chord.chordBase?.intvls?.arraySwap(index1: i, index2: i+1)
-        }
-        chord.chordBase?.intvls?[0] = (chord.chordBase?.intvls?[0])! + 12
-        
-    }
+
     
 }
 
