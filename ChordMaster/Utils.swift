@@ -12,28 +12,38 @@ import Foundation
 public class Utils: NSObject {
     
     /*
-    func getChordNotesFor(baseNote:BasicNote_,chordIntvlArray:Array<Int>) -> [[String]]{
-        var noteArray: [[String]] = []
+    func getChordNotesFor(baseNote:BasicNote,chordIntvlArray:Array<Int>) -> [BasicNote]{
+        var noteArray: [BasicNote] = []
         var baseN: Int = 0;
         for note in base12NoteArray {
-            if (note.eName[0] == baseNote.eName[0]){
+            if (note.eNameF == baseNote.eNameF){
                 break
             }
             baseN += 1
         }
         let maxIndex = base12NoteArray.count
         for i in chordIntvlArray {
-            noteArray.append(base12NoteArray[(baseN + i) % maxIndex].eName)  //eNameのみを選択
+            noteArray.append( base12NoteArray[(baseN + i) % maxIndex] )  //eNameのみを選択
         }
         return noteArray;
     }
     */
+    func getChordNotesFor(chord:Chord) -> [BasicNote]{
+        var noteArray: [BasicNote] = []
+
+        for memberNum:Int in (chord.chordBase?.intvls)! {
+            let noteNum = Int(((chord.baseNote?.noteNumber)! + Int16(memberNum)))
+            noteArray.append( base12NoteArray[noteNum % NUMBER_OF_KEYS] )  //eNameのみを選択
+        }
+        return noteArray;
+    }
+    
     
     func getChordsFor(baseNoteNum:Int, chordset:ChordSet)-> [Chord] {
         let dbAccess = DBAccess()
         let maxIndex = NUMBER_OF_KEYS
         var chordArray: [Chord] = []
-        var chordSetArray:[(Int,ChordType)] = []
+        var chordSetArray:[(Int,ChordType,Int)] = []
         
         switch (chordset){
         case .DIATONIC_MAJOR_3:
@@ -60,12 +70,14 @@ public class Utils: NSObject {
             break
         }
         
-        for (chordNoteNum,chordType) in chordSetArray {
+        for (chordNoteNum,chordType,degree) in chordSetArray {
             let noteNum = (baseNoteNum + chordNoteNum) % maxIndex
             let chords:Array<Chord> = dbAccess.db_selectChordWith(keyNoteNumber: noteNum,
                                                                   chordSymbol: chordType.symbol)
             if(chords.count > 0){
-                chordArray.append(chords[0]) //TODO optional
+                let chord = chords[0]
+                chord.degreeInKey = Int16(degree)
+                chordArray.append(chord) //TODO optional
             }
         }
         
@@ -81,12 +93,25 @@ public class Utils: NSObject {
         chord.chordBase?.intvls?[noteCount-1] = (chord.chordBase?.intvls?[noteCount-1])! - 12
     }
     
-    func inverse_high(chord:inout Chord){
+    func inverse_high(chord:inout Chord) {
         let noteCount:Int = (chord.chordBase?.intvls?.count)!
         for i in (1..<noteCount-1).reversed() {
             chord.chordBase?.intvls?.arraySwap(index1: i, index2: i+1)
         }
         chord.chordBase?.intvls?[0] = (chord.chordBase?.intvls?[0])! + 12
+    }
+    
+    
+    func getNotesOfChord(chord:Chord)->[BasicNote] {
+        
+        var noteArray: [BasicNote] = []
+        let baseNoteNum = Int16(BASE_C_NUMBER) + (chord.baseNote?.noteNumber)!
+        
+        for i in (chord.chordBase?.intvls)! {
+            noteArray.append( allNoteArray[Int(baseNoteNum + Int16(i))].basicNote)  //eNameのみを選択
+        }
+        return noteArray;
+ 
     }
 
 }

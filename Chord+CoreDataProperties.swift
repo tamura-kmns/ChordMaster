@@ -2,7 +2,7 @@
 //  Chord+CoreDataProperties.swift
 //  ChordMaster
 //
-//  Created by KatsuhikoTamura on 2018/07/26.
+//  Created by KatsuhikoTamura on 2018/08/09.
 //  Copyright © 2018年 9bit.co. All rights reserved.
 //
 //
@@ -18,6 +18,7 @@ extension Chord {
     }
 
     @NSManaged public var num: Int16
+    @NSManaged public var degreeInKey: Int16
     @NSManaged public var baseNote: BasicNote?
     @NSManaged public var chordBase: ChordBase?
 

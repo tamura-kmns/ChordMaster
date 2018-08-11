@@ -13,4 +13,7 @@ import CoreData
 @objc(Chord)
 public class Chord: NSManagedObject {
 
+
+    
+
 }

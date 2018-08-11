@@ -18,6 +18,9 @@ UITextFieldDelegate,UICollectionViewDataSource,UIGestureRecognizerDelegate,AVAud
     
     @IBOutlet weak var chordBarCollectionView: UICollectionView!
     
+    @IBOutlet weak var chordDetailView: UIView!
+    
+    
     let utils = Utils()
     
     let engine = AVAudioEngine()
@@ -69,8 +72,6 @@ UITextFieldDelegate,UICollectionViewDataSource,UIGestureRecognizerDelegate,AVAud
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        
-        
         self.allChordsArray.removeAll()
         
         chordArray_Diatonic3.removeAll()
@@ -106,7 +107,7 @@ UITextFieldDelegate,UICollectionViewDataSource,UIGestureRecognizerDelegate,AVAud
          chordArray_NaturalMinor4.append(chord)
          }
          **/
-        
+        /*
         chordArray_AllMinor3.removeAll()
         chords.removeAll()
         chords = utils.getChordsFor(baseNoteNum: row, chordset: ChordSet.DIATONIC_MINOR_ALL_3)
@@ -122,6 +123,7 @@ UITextFieldDelegate,UICollectionViewDataSource,UIGestureRecognizerDelegate,AVAud
             chordArray_AllMinor4.append(chord)
         }
         // allChordsArray += chordArray_AllMinor4
+        */
         
         self.chordCollectionView.reloadData()
     }
@@ -293,8 +295,10 @@ UITextFieldDelegate,UICollectionViewDataSource,UIGestureRecognizerDelegate,AVAud
     }
     
     @objc func logPressedChordCell(_ sender: UILongPressGestureRecognizer){
-        
-        
+        if (sender.state == UIGestureRecognizerState.began) {
+            print("longPressed")
+            showChordDetails(chord: (sender.view as! ChordCell).chord!)
+        }
     }
     
     @objc func swipedChordCell(_ sender: UISwipeGestureRecognizer) {
@@ -340,7 +344,7 @@ UITextFieldDelegate,UICollectionViewDataSource,UIGestureRecognizerDelegate,AVAud
             let playNoteNum = (baseNoteNum + Int16(noteNum))
             let player = AVAudioPlayerNode()
             
-            let filePath = Bundle.main.path(forResource: allNoteFileNameArray[Int(playNoteNum)], ofType: "mp3")!
+            let filePath = Bundle.main.path(forResource: allNoteArray[Int(playNoteNum)].fileName, ofType: "mp3")!
             let fileURL = URL(fileURLWithPath: filePath)
             if let audioFile = try? AVAudioFile(forReading: fileURL) {
                 engine.attach(player)
@@ -353,6 +357,13 @@ UITextFieldDelegate,UICollectionViewDataSource,UIGestureRecognizerDelegate,AVAud
         for player in audioPlayers {
             player.play()
         }
+        
+    }
+    
+    func showChordDetails(chord: Chord){
+        
+        
+        
         
     }
     

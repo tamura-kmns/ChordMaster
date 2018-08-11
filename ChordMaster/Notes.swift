@@ -18,8 +18,10 @@ let jNameFlatArray = ["ハ","嬰ハ","二","変ホ","ホ","へ","嬰へ","ト","
 
 //let noteNameArray = [("C","ド","ハ"),("C#","ド#","嬰ハ")]
 
-////b12noteの配列////
+////12noteのBasicNotインスタンスの配列  DBより取得する
 var base12NoteArray = [BasicNote]()
+
+var allNoteArray:[allNote] = []
 
 ///全note sound file名 配列
 var allNoteFileNameArray = ["0-0","0-1","0-2","0-3","0-4","0-5","0-6","0-7","0-8","0-9","0-10","0-11",
@@ -30,28 +32,15 @@ var allNoteFileNameArray = ["0-0","0-1","0-2","0-3","0-4","0-5","0-6","0-7","0-8
                      "5-0","5-1","5-2","5-3","5-4","5-5","5-6","5-7","5-8","5-9","5-10","5-11",
                      "6-0","6-1","6-2","6-3","6-4","6-5","6-6","6-7","6-8","6-9","6-10","6-11"]
 
-/**
-//12音用struct
-struct Basic_Note{
-    var eName:[String]
-    var iName:[String] //italian name ドレミ
-    var jName:[String] //和名
-    
-    init(num:Int){
-        eName = [eNameSharpArray[num],eNameFlatArray[num]]
-        iName = [iNameSharpArray[num],iNameFlatArray[num]]
-        jName = [jNameSharpArray[num],jNameFlatArray[num]]
-    }
-}**/
 
-//各音struct
-/*
-struct Note {
-    let basicNote:Basic_Note
+
+//全note 鍵盤88音 + 低音8
+struct allNote {
+    let basicNote:BasicNote
     let noteNumber:Int
-    let c:Int
-    let yc:Int //yamaha
-    //let keyNum:Int
+    let c:Int //国際
+    let yc:Int //yamaha?
+    let fileName:String
     //let freq:Double
     
     init(noteNum:Int){
@@ -59,36 +48,31 @@ struct Note {
         switch(noteNumber){
             
         case 0...11:
-            c = -1
+            c = 0
         case 12...23:
-            c = 0
-        case 24...35:
             c = 1
-        case 36...47:
+        case 24...35:
             c = 2
-        case 48...59:
+        case 36...47:
             c = 3
-        case 60...71:
+        case 48...59:
             c = 4
-        case 72...83:
+        case 60...71:
             c = 5
-        case 84...95:
+        case 72...83:
             c = 6
-        case 96...107:
+        case 84...95:
             c = 7
-        case 108...119:
-            c = 8
-        case 120...127:
-            c = 9
         default:
-            c = 0
+            c = 8
         }
-        yc = c + 1;
+        yc = c - 1;
         let n = noteNumber % 12;
         basicNote = base12NoteArray[n]
-    }// init
+        fileName = "\(c)-\(n)"
+    }
 }
-*/
+
 
 
 

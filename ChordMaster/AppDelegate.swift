@@ -22,8 +22,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let chordCount:Int? = dbAccess.db_countChords() //TODO コードのカウントでいいか？
         
         if let count = chordCount {
-            print("y")
-            
             if(count == 0){
              print("Start generating db data")
              self.initBasicNote()
@@ -37,7 +35,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }else{
            print("db error..get chord count")
         }
- 
+
+        base12NoteArray = dbAccess.db_getBase12Notes()
         
         return true
     }
@@ -82,13 +81,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
  
     //全noteテーブル(鍵盤)生成
-    /*
     func initAllNotes() {
-        for i in 0...127 {
-            allNotesArray.append(Note(noteNum: i) )
+        for i in 0...95 {
+            allNoteArray.append(allNote(noteNum: i) )
         }
     }
-    */
  
     func initChordBase(){
         let dbAccess = DBAccess()

@@ -17,6 +17,18 @@ public class DBAccess: NSObject {
 
     let managedContext:NSManagedObjectContext! = appdelegate.persistentContainer.viewContext
     
+    func db_getBase12Notes()->[BasicNote]{
+        //has to be 12 notes
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "BasicNote")
+        do {
+            let fetchedResult = try managedContext.fetch(fetchRequest) as! [BasicNote]
+            return fetchedResult
+        } catch {
+            fatalError("Failed to fetch chords: \(error)")
+        }
+        
+    }
+    
     func db_insertBaseNote(eNameF:String,
                            eNameS:String,
                            iNameF:String,

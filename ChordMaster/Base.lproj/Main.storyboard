@@ -128,6 +128,7 @@
                     <connections>
                         <outlet property="chordBarCollectionView" destination="bqj-Yi-MEa" id="ZVx-RK-HuT"/>
                         <outlet property="chordCollectionView" destination="Pa5-U7-ATO" id="oxM-X8-giT"/>
+                        <outlet property="chordDetailView" destination="de7-EJ-tr0" id="5Lo-Af-jgK"/>
                         <outlet property="keyButton" destination="aeW-AF-W0Y" id="qZs-bY-qWV"/>
                         <outlet property="keyPickerView" destination="wIF-nA-Rnn" id="2I0-D7-dyl"/>
                     </connections>

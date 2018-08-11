@@ -11,8 +11,9 @@ import Foundation
 
 let NUMBER_OF_KEYS = 12
 
-//C-3
-let BASE_C_NUMBER = 36
+
+//コード鳴らす時の基準C-4 のallNoteArray内の順番
+let BASE_C_NUMBER = 48
 
 
 enum ChordSet{
