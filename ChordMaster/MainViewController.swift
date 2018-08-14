@@ -15,14 +15,10 @@ UITextFieldDelegate,UICollectionViewDataSource,UIGestureRecognizerDelegate,AVAud
     @IBOutlet weak var keyButton: UIButton!
     @IBOutlet weak var keyPickerView: UIPickerView!
     @IBOutlet weak var chordCollectionView: UICollectionView!
-    
     @IBOutlet weak var chordBarCollectionView: UICollectionView!
-    
-    @IBOutlet weak var chordDetailView: UIView!
-    
+    @IBOutlet weak var chordDetailView: ChordDetailView!
     
     let utils = Utils()
-    
     let engine = AVAudioEngine()
     
     let NUMBER_OF_CHORD_GROUPS = 5
@@ -343,7 +339,8 @@ UITextFieldDelegate,UICollectionViewDataSource,UIGestureRecognizerDelegate,AVAud
         for noteNum:Int in (chord.chordBase?.intvls)! {
             let playNoteNum = (baseNoteNum + Int16(noteNum))
             let player = AVAudioPlayerNode()
-            
+            print(playNoteNum)
+
             let filePath = Bundle.main.path(forResource: allNoteArray[Int(playNoteNum)].fileName, ofType: "mp3")!
             let fileURL = URL(fileURLWithPath: filePath)
             if let audioFile = try? AVAudioFile(forReading: fileURL) {
@@ -357,19 +354,13 @@ UITextFieldDelegate,UICollectionViewDataSource,UIGestureRecognizerDelegate,AVAud
         for player in audioPlayers {
             player.play()
         }
-        
     }
     
     func showChordDetails(chord: Chord){
         
-        
-        
-        
-    }
-    
-    
-    
+        self.chordDetailView.setDetails(chord: chord)
 
-    
+    }
+
 }
 

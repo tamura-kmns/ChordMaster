@@ -105,10 +105,10 @@ public class Utils: NSObject {
     func getNotesOfChord(chord:Chord)->[BasicNote] {
         
         var noteArray: [BasicNote] = []
-        let baseNoteNum = Int16(BASE_C_NUMBER) + (chord.baseNote?.noteNumber)!
-        
+        let baseNoteNum = Int16(BASE_C_NUMBER) + (chord.baseNote?.noteNumber)! //TODO 変更の必要
+    
         for i in (chord.chordBase?.intvls)! {
-            noteArray.append( allNoteArray[Int(baseNoteNum + Int16(i))].basicNote)  //eNameのみを選択
+            noteArray.append(allNoteArray[Int(baseNoteNum + Int16(i))].basicNote)
         }
         return noteArray;
  

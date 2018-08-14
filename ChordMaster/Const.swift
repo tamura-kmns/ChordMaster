@@ -11,6 +11,7 @@ import Foundation
 
 let NUMBER_OF_KEYS = 12
 
+let DegreeNumber:[String] = ["", "I", "Ⅱ","Ⅲ","Ⅳ","Ⅴ","Ⅵ","Ⅶ"]
 
 //コード鳴らす時の基準C-4 のallNoteArray内の順番
 let BASE_C_NUMBER = 48
@@ -30,4 +31,8 @@ enum ChordSet{
     
     case SUBDOMINANT_MINOR
 }
+
+
+
+
 

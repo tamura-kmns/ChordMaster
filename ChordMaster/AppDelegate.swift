@@ -27,7 +27,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
              self.initBasicNote()
              self.initChordBase()
              self.generateChordTable()
-             
             }else{
               print("db data already exists.Skip generating data")
             }
@@ -37,6 +36,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
 
         base12NoteArray = dbAccess.db_getBase12Notes()
+        
+        self.initAllNotes()
         
         return true
     }
@@ -82,7 +83,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
  
     //全noteテーブル(鍵盤)生成
     func initAllNotes() {
-        for i in 0...95 {
+        for i in 0...96 {
             allNoteArray.append(allNote(noteNum: i) )
         }
     }
