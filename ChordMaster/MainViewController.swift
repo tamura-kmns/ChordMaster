@@ -17,6 +17,7 @@ UITextFieldDelegate,UICollectionViewDataSource,UIGestureRecognizerDelegate,AVAud
     @IBOutlet weak var chordCollectionView: UICollectionView!
     @IBOutlet weak var chordBarCollectionView: UICollectionView!
     @IBOutlet weak var chordDetailView: ChordDetailView!
+    @IBOutlet weak var chordBarDetailView: ChordBarDetailView!
     
     let utils = Utils()
     let engine = AVAudioEngine()
@@ -103,7 +104,7 @@ UITextFieldDelegate,UICollectionViewDataSource,UIGestureRecognizerDelegate,AVAud
          chordArray_NaturalMinor4.append(chord)
          }
          **/
-        /*
+        
         chordArray_AllMinor3.removeAll()
         chords.removeAll()
         chords = utils.getChordsFor(baseNoteNum: row, chordset: ChordSet.DIATONIC_MINOR_ALL_3)
@@ -119,7 +120,7 @@ UITextFieldDelegate,UICollectionViewDataSource,UIGestureRecognizerDelegate,AVAud
             chordArray_AllMinor4.append(chord)
         }
         // allChordsArray += chordArray_AllMinor4
-        */
+        
         
         self.chordCollectionView.reloadData()
     }
@@ -212,13 +213,14 @@ UITextFieldDelegate,UICollectionViewDataSource,UIGestureRecognizerDelegate,AVAud
             return cell
         }
         ///////////////////////////////////////////////////////////////////////////////////////////////
-        else { ///chordCollectionView
+        else { ///chordBarCollectionView
 
             let cell:ChordBarCell = collectionView.dequeueReusableCell(withReuseIdentifier: "ChordBarCell",
                                                                     for: indexPath)  as! ChordBarCell
             cell.indexPath = indexPath
             cell.backgroundColor = UIColor.green
             cell.chord = self.chordBarArray[indexPath.row]
+            cell.bassNote = self.chordBarArray[indexPath.row].baseNote
             cell.chordNameLabel.text = (cell.chord?.baseNote?.eNameF)! + (cell.chord?.chordBase?.symbol)!
             
             let doubleTap_BarChord = UITapGestureRecognizer(target: self, action: #selector(doubleTapped_BarChord(_:)))
@@ -267,8 +269,9 @@ UITextFieldDelegate,UICollectionViewDataSource,UIGestureRecognizerDelegate,AVAud
 
 
     @objc func singleTapped(_ sender: UITapGestureRecognizer){
+        self.chordDetailView.setDetails(chord: (sender.view as! ChordCell).chord!,
+                                        bassNote: (sender.view as! ChordCell).chord!.baseNote!)
         playChord(chord: (sender.view as! ChordCell).chord!)
-  
     }
     
     @objc func doubleTapped(_ sender: UITapGestureRecognizer){
@@ -278,7 +281,9 @@ UITextFieldDelegate,UICollectionViewDataSource,UIGestureRecognizerDelegate,AVAud
     
     @objc func singleTapped_BarChord(_ sender: UITapGestureRecognizer){
         playChord(chord: (sender.view as! ChordBarCell).chord!)
-        
+        self.chordBarDetailView.setDetails(chord: (sender.view as! ChordBarCell).chord!,
+                                        bassNote:(sender.view as! ChordBarCell).chord!.baseNote!
+                                        )
     }
     
     @objc func doubleTapped_BarChord(_ sender: UITapGestureRecognizer){
@@ -293,7 +298,7 @@ UITextFieldDelegate,UICollectionViewDataSource,UIGestureRecognizerDelegate,AVAud
     @objc func logPressedChordCell(_ sender: UILongPressGestureRecognizer){
         if (sender.state == UIGestureRecognizerState.began) {
             print("longPressed")
-            showChordDetails(chord: (sender.view as! ChordCell).chord!)
+            //showChordDetails(chord: (sender.view as! ChordCell).chord!)
         }
     }
     
@@ -307,6 +312,7 @@ UITextFieldDelegate,UICollectionViewDataSource,UIGestureRecognizerDelegate,AVAud
             print("Left")
             utils.inverse_low(chord: &(sender.view as! ChordCell).chord! )
         }
+        self.chordDetailView.setChordNotes(chord: (sender.view as! ChordCell).chord!)
     }
     
     
@@ -332,7 +338,6 @@ UITextFieldDelegate,UICollectionViewDataSource,UIGestureRecognizerDelegate,AVAud
         }
     }
     
-    
     func playChord(chord:Chord){
         let baseNoteNum = Int16(BASE_C_NUMBER) + (chord.baseNote?.noteNumber)!
         var audioPlayers:[AVAudioPlayerNode] = []
@@ -356,11 +361,6 @@ UITextFieldDelegate,UICollectionViewDataSource,UIGestureRecognizerDelegate,AVAud
         }
     }
     
-    func showChordDetails(chord: Chord){
-        
-        self.chordDetailView.setDetails(chord: chord)
-
-    }
 
 }
 

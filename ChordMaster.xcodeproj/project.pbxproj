@@ -95,6 +95,7 @@
 		684C44B621229DA0005F1230 /* 6-9.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 684C446021229DA0005F1230 /* 6-9.mp3 */; };
 		684C44B721229DA0005F1230 /* 8-1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 684C446121229DA0005F1230 /* 8-1.mp3 */; };
 		684C44B821229DA0005F1230 /* 3-9.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 684C446221229DA0005F1230 /* 3-9.mp3 */; };
+		684C44BA212579E1005F1230 /* ChordBarDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684C44B9212579E1005F1230 /* ChordBarDetailView.swift */; };
 		687846FF2103D5B50094EB78 /* BasicNote+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 687846F92103D5B50094EB78 /* BasicNote+CoreDataClass.swift */; };
 		687847002103D5B50094EB78 /* BasicNote+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 687846FA2103D5B50094EB78 /* BasicNote+CoreDataProperties.swift */; };
 		687847012103D5B50094EB78 /* ChordBase+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 687846FB2103D5B50094EB78 /* ChordBase+CoreDataClass.swift */; };
@@ -204,6 +205,7 @@
 		684C446021229DA0005F1230 /* 6-9.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "6-9.mp3"; sourceTree = "<group>"; };
 		684C446121229DA0005F1230 /* 8-1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "8-1.mp3"; sourceTree = "<group>"; };
 		684C446221229DA0005F1230 /* 3-9.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "3-9.mp3"; sourceTree = "<group>"; };
+		684C44B9212579E1005F1230 /* ChordBarDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChordBarDetailView.swift; sourceTree = "<group>"; };
 		687846F92103D5B50094EB78 /* BasicNote+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BasicNote+CoreDataClass.swift"; sourceTree = "<group>"; };
 		687846FA2103D5B50094EB78 /* BasicNote+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BasicNote+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		687846FB2103D5B50094EB78 /* ChordBase+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChordBase+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -364,6 +366,7 @@
 				68D2DC7620F2A38500B225DC /* ChordCell.swift */,
 				688F78592110F7A8009A4F8A /* chordBarCell.swift */,
 				684C440B212184AF005F1230 /* ChordDetailView.swift */,
+				684C44B9212579E1005F1230 /* ChordBarDetailView.swift */,
 				68FFBEDE20EC8C9900379616 /* Utils.swift */,
 				68FFBEE020ED6AE900379616 /* DBAccess.swift */,
 				68FFBEAD20EAB8A600379616 /* Main.storyboard */,
@@ -534,6 +537,7 @@
 			files = (
 				68FFBEE120ED6AE900379616 /* DBAccess.swift in Sources */,
 				687847042103D5B50094EB78 /* Chord+CoreDataProperties.swift in Sources */,
+				684C44BA212579E1005F1230 /* ChordBarDetailView.swift in Sources */,
 				684C440C212184AF005F1230 /* ChordDetailView.swift in Sources */,
 				688F785A2110F7A8009A4F8A /* chordBarCell.swift in Sources */,
 				68D2DC7720F2A38500B225DC /* ChordCell.swift in Sources */,

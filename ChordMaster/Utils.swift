@@ -85,20 +85,20 @@ public class Utils: NSObject {
     }
     
     
-    func inverse_low(chord:inout Chord){
+    func inverse_high(chord:inout Chord){
         let noteCount:Int = (chord.chordBase?.intvls?.count)!
         for i in 0..<noteCount-1 {
             chord.chordBase?.intvls?.arraySwap(index1: i, index2: i+1)
         }
-        chord.chordBase?.intvls?[noteCount-1] = (chord.chordBase?.intvls?[noteCount-1])! - 12
+        chord.chordBase?.intvls?[noteCount-1] = (chord.chordBase?.intvls?[noteCount-1])! + 12
     }
     
-    func inverse_high(chord:inout Chord) {
-        let noteCount:Int = (chord.chordBase?.intvls?.count)!
-        for i in (1..<noteCount-1).reversed() {
-            chord.chordBase?.intvls?.arraySwap(index1: i, index2: i+1)
+    func inverse_low(chord:inout Chord) {
+        let noteCount:Int = (chord.chordBase?.intvls?.count)! 
+        for i in (1..<noteCount).reversed() {
+            chord.chordBase?.intvls?.arraySwap(index1: i, index2: i-1)
         }
-        chord.chordBase?.intvls?[0] = (chord.chordBase?.intvls?[0])! + 12
+        chord.chordBase?.intvls?[0] = (chord.chordBase?.intvls?[0])! - 12
     }
     
     

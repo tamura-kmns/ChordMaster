@@ -81,13 +81,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
  
-    //全noteテーブル(鍵盤)生成
-    func initAllNotes() {
-        for i in 0...96 {
-            allNoteArray.append(allNote(noteNum: i) )
-        }
-    }
- 
     func initChordBase(){
         let dbAccess = DBAccess()
         for chordType:ChordType in chordTypes {
@@ -110,6 +103,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 dbAccess.db_insertChord(chordNum:chordNum, noteNumber:i, chordSymbol:chordType.symbol)
                 chordNum += 1
             }
+        }
+    }
+    
+    //全noteテーブル(鍵盤)生成
+    func initAllNotes() {
+        for i in 0...96 {
+            allNoteArray.append(allNote(noteNum: i) )
         }
     }
 
