@@ -344,7 +344,6 @@ UITextFieldDelegate,UICollectionViewDataSource,UIGestureRecognizerDelegate,AVAud
         for noteNum:Int in (chord.chordBase?.intvls)! {
             let playNoteNum = (baseNoteNum + Int16(noteNum))
             let player = AVAudioPlayerNode()
-            print(playNoteNum)
 
             let filePath = Bundle.main.path(forResource: allNoteArray[Int(playNoteNum)].fileName, ofType: "mp3")!
             let fileURL = URL(fileURLWithPath: filePath)
