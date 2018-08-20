@@ -45,6 +45,9 @@ UITextFieldDelegate,UICollectionViewDataSource,UIGestureRecognizerDelegate,AVAud
         
         keyPickerView.isHidden = true
         
+        chordBarDetailView.bassPickerView.dataSource = self
+        chordBarDetailView.bassPickerView.delegate = self
+        chordBarDetailView.bassPickerView.tag = ViewTag.BASS_PICKERVIEW.rawValue
     }
     
     override func didReceiveMemoryWarning() {

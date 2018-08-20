@@ -17,7 +17,7 @@ let DegreeNumber:[String] = ["", "I", "Ⅱ","Ⅲ","Ⅳ","Ⅴ","Ⅵ","Ⅶ"]
 let BASE_C_NUMBER = 48
 
 
-enum ChordSet{
+enum ChordSet {
     case DIATONIC_MAJOR_3
     case DIATONIC_MAJOR_4
     case DIATONIC_MINOR_NATURAL_3
@@ -30,6 +30,11 @@ enum ChordSet{
     case DIATONIC_MINOR_ALL_4
     
     case SUBDOMINANT_MINOR
+}
+
+enum ViewTag:Int{
+    case BASS_PICKERVIEW
+    case BASS_DEGREEVIEW
 }
 
 

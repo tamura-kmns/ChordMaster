@@ -12,6 +12,7 @@ class ChordDetailView: UIView {
     
     @IBOutlet weak var chordNotesLabel: UILabel!
     @IBOutlet weak var degreeLabel: UILabel!
+    @IBOutlet weak var bassPickerView: UIPickerView!
     
     
     let utils = Utils()

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ChordBarDetailView: UIView,UIPickerViewDelegate,UIPickerViewDataSource {
+class ChordBarDetailView: UIView {
  
     @IBOutlet weak var chordNotesLabel: UILabel!
     @IBOutlet weak var degreeLabel: UILabel!
@@ -31,36 +31,18 @@ class ChordBarDetailView: UIView,UIPickerViewDelegate,UIPickerViewDataSource {
             notesString.append(note.eNameF!)
             notesString.append(" ")
         }
-        self.chordNotesLabel.text = notesString + " / " + bassNote.eNameS!
-        
-        
+        self.chordNotesLabel.text = notesString + "/"
+        self.setBass(bassNote: bassNote)
     }
     
     func showDegree(chord: Chord,bassNote: BasicNote) {
         self.degreeLabel.text = DegreeNumber[Int(chord.degreeInKey)]
-            + " / " + DegreeNumber[Int(bassNote.noteNumber)]
     }
     
-    
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return NUMBER_OF_KEYS
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return eNameFlatArray[row]
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+    func setBass(bassNote: BasicNote){
         
+        self.bassPickerView.selectRow(Int(bassNote.noteNumber), inComponent: 0, animated: false)
     }
-    
-    
-    
-    
     
     
     
