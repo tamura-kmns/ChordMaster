@@ -33,7 +33,8 @@ UITextFieldDelegate,UICollectionViewDataSource,UIGestureRecognizerDelegate,AVAud
     var chordArray_AllMinor3: [Chord] = []
     var chordArray_AllMinor4: [Chord] = []
     
-    var chordBarArray: [Chord] = []
+    var chordBarArray: [(chord:Chord,bass:BasicNote)] = []
+    var selectedBarChordNum: Int = 0
     
     override func viewDidLoad() {
         
@@ -43,7 +44,9 @@ UITextFieldDelegate,UICollectionViewDataSource,UIGestureRecognizerDelegate,AVAud
                                                             action:#selector(self.handleLongGesture(gesture:)))
         chordBarCollectionView.addGestureRecognizer(longPressGesture)
         
-        keyPickerView.isHidden = true
+        self.keyPickerView.isHidden = true
+        
+        self.keyPickerView.tag = ViewTag.KEY_PICKERVIEW.rawValue
         
         chordBarDetailView.bassPickerView.dataSource = self
         chordBarDetailView.bassPickerView.delegate = self
@@ -59,6 +62,9 @@ UITextFieldDelegate,UICollectionViewDataSource,UIGestureRecognizerDelegate,AVAud
         self.keyPickerView.isHidden = false;
     }
     
+    
+    /////////////////////  UIPicekerViewDelegate //////////////////////////////
+    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -72,60 +78,64 @@ UITextFieldDelegate,UICollectionViewDataSource,UIGestureRecognizerDelegate,AVAud
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        self.allChordsArray.removeAll()
-        
-        chordArray_Diatonic3.removeAll()
-        var chords = utils.getChordsFor(baseNoteNum: row, chordset: ChordSet.DIATONIC_MAJOR_3)
-        for chord in chords{
-            //print((chord.baseNote?.eNameF)! + (chord.chordBase?.symbol)!)
-            chordArray_Diatonic3.append(chord)
+        if (ViewTag.KEY_PICKERVIEW.rawValue == pickerView.tag) {
+            self.allChordsArray.removeAll()
+            chordArray_Diatonic3.removeAll()
+            var chords = utils.getChordsFor(baseNoteNum: row, chordset: ChordSet.DIATONIC_MAJOR_3)
+            for chord in chords{
+                //print((chord.baseNote?.eNameF)! + (chord.chordBase?.symbol)!)
+                chordArray_Diatonic3.append(chord)
+            }
+            //allChordsArray += chordArray_Diatonic3
+            
+            chordArray_Diatonic4.removeAll()
+            chords.removeAll()
+            chords = utils.getChordsFor(baseNoteNum: row, chordset: ChordSet.DIATONIC_MAJOR_4)
+            for chord in chords{
+                chordArray_Diatonic4.append(chord)
+            }
+            //allChordsArray += chordArray_Diatonic4
+            
+            /**
+             chordArray_NaturalMinor3.removeAll()
+             chords.removeAll()
+             chords = utils.getChordsFor(baseNoteNum: row, chordset: ChordSet.DIATONIC_MINOR_NATURAL_3)
+             for chord in chords{
+             //print((chord.baseNote?.eNameF)! + (chord.chordBase?.symbol)!)
+             chordArray_NaturalMinor3.append(chord)
+             }
+             
+             chordArray_NaturalMinor4.removeAll()
+             chords.removeAll()
+             chords = utils.getChordsFor(baseNoteNum: row, chordset: ChordSet.DIATONIC_MINOR_NATURAL_4)
+             for chord in chords{
+             //print((chord.baseNote?.eNameF)! + (chord.chordBase?.symbol)!)
+             chordArray_NaturalMinor4.append(chord)
+             }
+             **/
+            
+            chordArray_AllMinor3.removeAll()
+            chords.removeAll()
+            chords = utils.getChordsFor(baseNoteNum: row, chordset: ChordSet.DIATONIC_MINOR_ALL_3)
+            for chord in chords{
+                chordArray_AllMinor3.append(chord)
+            }
+            //allChordsArray += chordArray_AllMinor3
+            
+            chordArray_AllMinor4.removeAll()
+            chords.removeAll()
+            chords = utils.getChordsFor(baseNoteNum: row, chordset: ChordSet.DIATONIC_MINOR_ALL_4)
+            for chord in chords{
+                chordArray_AllMinor4.append(chord)
+            }
+            // allChordsArray += chordArray_AllMinor4
+            self.chordCollectionView.reloadData()
+            
+        }else if (ViewTag.BASS_PICKERVIEW.rawValue == pickerView.tag) {
+            
+            self.chordBarArray[self.selectedBarChordNum].bass = base12NoteArray[row]
+            self.chordBarDetailView.setBassDegreeLabel(deg: row)
         }
-        //allChordsArray += chordArray_Diatonic3
-        
-        chordArray_Diatonic4.removeAll()
-        chords.removeAll()
-        chords = utils.getChordsFor(baseNoteNum: row, chordset: ChordSet.DIATONIC_MAJOR_4)
-        for chord in chords{
-            chordArray_Diatonic4.append(chord)
-        }
-        //allChordsArray += chordArray_Diatonic4
-        
-        /**
-         chordArray_NaturalMinor3.removeAll()
-         chords.removeAll()
-         chords = utils.getChordsFor(baseNoteNum: row, chordset: ChordSet.DIATONIC_MINOR_NATURAL_3)
-         for chord in chords{
-         //print((chord.baseNote?.eNameF)! + (chord.chordBase?.symbol)!)
-         chordArray_NaturalMinor3.append(chord)
-         }
-         
-         chordArray_NaturalMinor4.removeAll()
-         chords.removeAll()
-         chords = utils.getChordsFor(baseNoteNum: row, chordset: ChordSet.DIATONIC_MINOR_NATURAL_4)
-         for chord in chords{
-         //print((chord.baseNote?.eNameF)! + (chord.chordBase?.symbol)!)
-         chordArray_NaturalMinor4.append(chord)
-         }
-         **/
-        
-        chordArray_AllMinor3.removeAll()
-        chords.removeAll()
-        chords = utils.getChordsFor(baseNoteNum: row, chordset: ChordSet.DIATONIC_MINOR_ALL_3)
-        for chord in chords{
-            chordArray_AllMinor3.append(chord)
-        }
-        //allChordsArray += chordArray_AllMinor3
-        
-        chordArray_AllMinor4.removeAll()
-        chords.removeAll()
-        chords = utils.getChordsFor(baseNoteNum: row, chordset: ChordSet.DIATONIC_MINOR_ALL_4)
-        for chord in chords{
-            chordArray_AllMinor4.append(chord)
-        }
-        // allChordsArray += chordArray_AllMinor4
-        
-        
-        self.chordCollectionView.reloadData()
     }
     
     
@@ -222,8 +232,8 @@ UITextFieldDelegate,UICollectionViewDataSource,UIGestureRecognizerDelegate,AVAud
                                                                     for: indexPath)  as! ChordBarCell
             cell.indexPath = indexPath
             cell.backgroundColor = UIColor.green
-            cell.chord = self.chordBarArray[indexPath.row]
-            cell.bassNote = self.chordBarArray[indexPath.row].baseNote
+            cell.chord = self.chordBarArray[indexPath.row].chord
+            cell.bassNote = self.chordBarArray[indexPath.row].bass
             cell.chordNameLabel.text = (cell.chord?.baseNote?.eNameF)! + (cell.chord?.chordBase?.symbol)!
             
             let doubleTap_BarChord = UITapGestureRecognizer(target: self, action: #selector(doubleTapped_BarChord(_:)))
@@ -278,15 +288,20 @@ UITextFieldDelegate,UICollectionViewDataSource,UIGestureRecognizerDelegate,AVAud
     }
     
     @objc func doubleTapped(_ sender: UITapGestureRecognizer){
-        chordBarArray.append((sender.view as! ChordCell).chord!)
+        chordBarArray.append( ((sender.view as! ChordCell).chord!,
+                               (sender.view as! ChordCell).chord!.baseNote!)
+        )
         chordBarCollectionView.reloadData()
     }
     
     @objc func singleTapped_BarChord(_ sender: UITapGestureRecognizer){
         playChord(chord: (sender.view as! ChordBarCell).chord!)
+        //keep the selecting cell row number
+        let path: NSIndexPath = chordBarCollectionView.indexPath(for: sender.view as! ChordBarCell)! as NSIndexPath
+        self.selectedBarChordNum = path.row
         self.chordBarDetailView.setDetails(chord: (sender.view as! ChordBarCell).chord!,
-                                        bassNote:(sender.view as! ChordBarCell).chord!.baseNote!
-                                        )
+                                        bassNote:(sender.view as! ChordBarCell).bassNote! )
+    
     }
     
     @objc func doubleTapped_BarChord(_ sender: UITapGestureRecognizer){

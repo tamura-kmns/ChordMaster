@@ -163,15 +163,15 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hTz-8z-J17">
-                                        <rect key="frame" x="78" y="6" width="34" height="34"/>
+                                        <rect key="frame" x="78" y="11" width="34" height="29"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                         <connections>
                                             <outlet property="dataSource" destination="BYZ-38-t0r" id="eNL-cU-GGG"/>
                                             <outlet property="delegate" destination="BYZ-38-t0r" id="bQD-jQ-QJS"/>
                                         </connections>
                                     </pickerView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9oZ-cg-3ac">
-                                        <rect key="frame" x="166" y="11" width="42" height="37"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9oZ-cg-3ac">
+                                        <rect key="frame" x="160" y="11" width="42" height="37"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <nil key="textColor"/>
@@ -180,6 +180,7 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.79571759259999997" green="0.98506944439999999" blue="0.99924768519999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
+                                    <outlet property="bassDegreeLabel" destination="9oZ-cg-3ac" id="KNt-Qg-eeW"/>
                                     <outlet property="bassPickerView" destination="hTz-8z-J17" id="TXi-fM-dtB"/>
                                     <outlet property="chordNotesLabel" destination="YRM-2s-Nv0" id="wo8-37-ufR"/>
                                     <outlet property="degreeLabel" destination="RDi-kX-6nG" id="gvf-g7-nld"/>

@@ -18,7 +18,7 @@ extension Chord {
     }
 
     @NSManaged public var num: Int16
-    @NSManaged public var degreeInKey: Int16 ///サブクラスに必要なため DBには必要ないが
+    @NSManaged public var degreeInKey: Int16 ///サブクラスに必要なため DBには必要ない. 0スタート
     @NSManaged public var baseNote: BasicNote?
     @NSManaged public var chordBase: ChordBase?
 
