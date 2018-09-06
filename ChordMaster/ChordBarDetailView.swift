@@ -19,38 +19,32 @@ class ChordBarDetailView: UIView {
     let utils = Utils()
     
     
-    func setDetails(chord: Chord, bassNote: BasicNote){
-        self.setChordNotes(chord: chord,bassNote: bassNote)
-        self.showDegree(chord: chord,bassNote: bassNote)
+    func setDetails(chord: Chord, bassNote: BasicNote, keyNumber:Int){
+        self.setChordNotes(chord: chord,bassNote: bassNote,inKey: keyNumber)
+        self.setBassPiker(bassNote: bassNote, inKey:keyNumber)
+        self.showDegree(chord: chord,bassNote: bassNote, inKey: keyNumber)
+        
     }
     
-    func setChordNotes(chord: Chord ,bassNote: BasicNote){
-        
+    func setChordNotes(chord: Chord ,bassNote: BasicNote,inKey:Int){
         let chordNotes = utils.getNotesOfChord(chord:chord)
-        
         var notesString:String = ""
         for note:BasicNote in chordNotes {
             notesString.append(note.eNameF!)
             notesString.append(" ")
         }
         self.chordNotesLabel.text = notesString + "/"
-        self.setBass(bassNote: bassNote)
     }
     
-    func showDegree(chord: Chord,bassNote: BasicNote) {
+    func showDegree(chord: Chord,bassNote: BasicNote,inKey:Int) {
         self.degreeLabel.text = DegreeNumber[Int(chord.degreeInKey)]
-        self.bassDegreeLabel.text = DegreeNumber[Int(bassNote.noteNumber)+1] //BasicNoteのは0スタートだから
+        self.bassDegreeLabel.text = DegreeNumber[utils.getDegreeInKey(note:bassNote,keyNumber:inKey)]
     }
     
-    func setBass(bassNote: BasicNote){
+    func setBassPiker(bassNote: BasicNote, inKey:Int){
         self.bassPickerView.selectRow(Int(bassNote.noteNumber), inComponent: 0, animated: false)
-        self.bassDegreeLabel.text = DegreeNumber[Int(bassNote.noteNumber)]
     }
     
-    func setBassDegreeLabel(deg: Int) {
-        self.bassDegreeLabel.text = DegreeNumber[deg]
-    }
+    //func setBassDegreeLabel
 
-    
-    
 }

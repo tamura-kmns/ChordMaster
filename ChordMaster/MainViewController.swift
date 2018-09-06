@@ -33,8 +33,9 @@ UITextFieldDelegate,UICollectionViewDataSource,UIGestureRecognizerDelegate,AVAud
     var chordArray_AllMinor3: [Chord] = []
     var chordArray_AllMinor4: [Chord] = []
     
-    var chordBarArray: [(chord:Chord,bass:BasicNote)] = []
+    var chordBarArray: [(chord:Chord,bass:BasicNote,key:Int)] = []
     var selectedBarChordNum: Int = 0
+    var currentKeyNumber: Int = 0
     
     override func viewDidLoad() {
         
@@ -79,6 +80,7 @@ UITextFieldDelegate,UICollectionViewDataSource,UIGestureRecognizerDelegate,AVAud
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if (ViewTag.KEY_PICKERVIEW.rawValue == pickerView.tag) {
+            self.currentKeyNumber = row
             self.allChordsArray.removeAll()
             chordArray_Diatonic3.removeAll()
             var chords = utils.getChordsFor(baseNoteNum: row, chordset: ChordSet.DIATONIC_MAJOR_3)
@@ -134,7 +136,7 @@ UITextFieldDelegate,UICollectionViewDataSource,UIGestureRecognizerDelegate,AVAud
         }else if (ViewTag.BASS_PICKERVIEW.rawValue == pickerView.tag) {
             
             self.chordBarArray[self.selectedBarChordNum].bass = base12NoteArray[row]
-            self.chordBarDetailView.setBassDegreeLabel(deg: row)
+            //self.chordBarDetailView.setBassDegreeLabel(deg: row)
         }
     }
     
@@ -232,9 +234,14 @@ UITextFieldDelegate,UICollectionViewDataSource,UIGestureRecognizerDelegate,AVAud
                                                                     for: indexPath)  as! ChordBarCell
             cell.indexPath = indexPath
             cell.backgroundColor = UIColor.green
+            
             cell.chord = self.chordBarArray[indexPath.row].chord
             cell.bassNote = self.chordBarArray[indexPath.row].bass
+            cell.inKey = self.chordBarArray[indexPath.row].key
+    
+            
             cell.chordNameLabel.text = (cell.chord?.baseNote?.eNameF)! + (cell.chord?.chordBase?.symbol)!
+            cell.bassLabel.text = cell.bassNote?.eNameF
             
             let doubleTap_BarChord = UITapGestureRecognizer(target: self, action: #selector(doubleTapped_BarChord(_:)))
             doubleTap_BarChord.numberOfTapsRequired = 2
@@ -289,7 +296,8 @@ UITextFieldDelegate,UICollectionViewDataSource,UIGestureRecognizerDelegate,AVAud
     
     @objc func doubleTapped(_ sender: UITapGestureRecognizer){
         chordBarArray.append( ((sender.view as! ChordCell).chord!,
-                               (sender.view as! ChordCell).chord!.baseNote!)
+                               (sender.view as! ChordCell).chord!.baseNote!,
+                               self.currentKeyNumber)
         )
         chordBarCollectionView.reloadData()
     }
@@ -300,7 +308,8 @@ UITextFieldDelegate,UICollectionViewDataSource,UIGestureRecognizerDelegate,AVAud
         let path: NSIndexPath = chordBarCollectionView.indexPath(for: sender.view as! ChordBarCell)! as NSIndexPath
         self.selectedBarChordNum = path.row
         self.chordBarDetailView.setDetails(chord: (sender.view as! ChordBarCell).chord!,
-                                        bassNote:(sender.view as! ChordBarCell).bassNote! )
+                                        bassNote:(sender.view as! ChordBarCell).bassNote!,
+                                        keyNumber:(sender.view as! ChordBarCell).inKey)
     
     }
     

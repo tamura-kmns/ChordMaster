@@ -13,10 +13,13 @@ import UIKit
 class ChordBarCell : UICollectionViewCell{
     
      @IBOutlet weak var chordNameLabel: UILabel!
+     @IBOutlet weak var bassLabel: UILabel!
 
     var chord:Chord? = nil
-    //Bass音 オンコードのため
+    //Bass音 オンコードのため ChordのbaseNoteとは別に
     var bassNote:BasicNote? = nil
+    
+    var inKey:Int = 0
 
     var indexPath:IndexPath? = nil
     

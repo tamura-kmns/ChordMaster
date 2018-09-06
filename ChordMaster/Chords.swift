@@ -155,7 +155,7 @@ let scale = (major: [0,2,4,5,7,9,11],
 )
 
 //// (ルート音(keyからの半音数),コード種,degree)
-let majorScaleTriadChords = [(0,major,1),(2,minor,2),(4,minor,3),(5,major,4),(7,major,5),(9,minor,6),(11,dim,7)]
+let majorScaleTriadChords = [(0,major,0),(2,minor,2),(4,minor,4),(5,major,5),(7,major,7),(9,minor,9),(11,dim,11)]
 let majorScale4NotesChords = [(0,maj7,1),(2,minor7,2),(4,minor7,3),(5,maj7,4),(7,seventh,5),(9,minor7,6),(11,halfdim,7)]
 
 let minorNaturalTriadChords = [(0,minor,1),(2,dim,2),(3,major,3),(5,minor,4),(7,minor,5),(8,major,6),(10,major,7)]

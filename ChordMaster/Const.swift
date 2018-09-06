@@ -11,7 +11,7 @@ import Foundation
 
 let NUMBER_OF_KEYS = 12
 
-let DegreeNumber:[String] = ["","I","Ⅱ♭","Ⅱ","Ⅲ♭","Ⅲ","Ⅳ","Ⅴ♭","Ⅴ","Ⅵ♭","Ⅵ","Ⅶ♭","Ⅶ"]
+let DegreeNumber:[String] = ["I","Ⅱ♭","Ⅱ","Ⅲ♭","Ⅲ","Ⅳ","Ⅴ♭","Ⅴ","Ⅵ♭","Ⅵ","Ⅶ♭","Ⅶ"]
 
 //コード鳴らす時の基準C-4 のallNoteArray内の順番
 let BASE_C_NUMBER = 48

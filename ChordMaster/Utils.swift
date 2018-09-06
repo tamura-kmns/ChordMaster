@@ -70,13 +70,13 @@ public class Utils: NSObject {
             break
         }
         
-        for (chordNoteNum,chordType,degree) in chordSetArray {
+        for (chordNoteNum,chordType,_) in chordSetArray {
             let noteNum = (baseNoteNum + chordNoteNum) % maxIndex
             let chords:Array<Chord> = dbAccess.db_selectChordWith(keyNoteNumber: noteNum,
                                                                   chordSymbol: chordType.symbol)
             if(chords.count > 0){
                 let chord = chords[0]
-                chord.degreeInKey = Int16(degree)
+                chord.degreeInKey = Int16(chordNoteNum)
                 chordArray.append(chord) //TODO optional
             }
         }
@@ -112,6 +112,16 @@ public class Utils: NSObject {
         }
         return noteArray;
  
+    }
+    
+    func getDegreeInKey(note:BasicNote, keyNumber:Int)->Int{
+        let degree:Int
+        if (Int(note.noteNumber) < keyNumber){
+            degree = Int(note.noteNumber) + 12 - keyNumber
+        }else{
+            degree = Int(note.noteNumber) - keyNumber
+        }
+        return degree
     }
 
 }
