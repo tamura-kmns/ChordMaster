@@ -37,14 +37,16 @@ class ChordBarDetailView: UIView {
     }
     
     func showDegree(chord: Chord,bassNote: BasicNote,inKey:Int) {
-        self.degreeLabel.text = DegreeNumber[Int(chord.degreeInKey)]
-        self.bassDegreeLabel.text = DegreeNumber[utils.getDegreeInKey(note:bassNote,keyNumber:inKey)]
+        self.degreeLabel.text = DegreeNumber[utils.getDegreeInKey(note:chord.baseNote!,keyNumber:inKey)]
+        self.setBassDegreeLabel(bassNote:bassNote,inKey:inKey)
     }
     
     func setBassPiker(bassNote: BasicNote, inKey:Int){
         self.bassPickerView.selectRow(Int(bassNote.noteNumber), inComponent: 0, animated: false)
     }
     
-    //func setBassDegreeLabel
+    func setBassDegreeLabel(bassNote: BasicNote,inKey:Int) {
+       self.bassDegreeLabel.text = DegreeNumber[utils.getDegreeInKey(note:bassNote,keyNumber:inKey)]
+    }
 
 }

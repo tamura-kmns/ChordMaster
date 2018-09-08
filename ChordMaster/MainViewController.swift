@@ -33,7 +33,9 @@ UITextFieldDelegate,UICollectionViewDataSource,UIGestureRecognizerDelegate,AVAud
     var chordArray_AllMinor3: [Chord] = []
     var chordArray_AllMinor4: [Chord] = []
     
-    var chordBarArray: [(chord:Chord,bass:BasicNote,key:Int)] = []
+    var chordBarArray: [(chord:Chord, bass:BasicNote, key:Int)] = []
+    
+    var selectedChordBarIndexPath: NSIndexPath? = nil
     var selectedBarChordNum: Int = 0
     var currentKeyNumber: Int = 0
     
@@ -136,7 +138,10 @@ UITextFieldDelegate,UICollectionViewDataSource,UIGestureRecognizerDelegate,AVAud
         }else if (ViewTag.BASS_PICKERVIEW.rawValue == pickerView.tag) {
             
             self.chordBarArray[self.selectedBarChordNum].bass = base12NoteArray[row]
-            //self.chordBarDetailView.setBassDegreeLabel(deg: row)
+            self.chordBarDetailView.setBassDegreeLabel(bassNote: chordBarArray[self.selectedBarChordNum].bass
+                ,inKey:chordBarArray[self.selectedBarChordNum].key)
+            self.chordBarCollectionView.reloadItems(at: [self.selectedChordBarIndexPath! as IndexPath])
+
         }
     }
     
@@ -304,8 +309,9 @@ UITextFieldDelegate,UICollectionViewDataSource,UIGestureRecognizerDelegate,AVAud
     
     @objc func singleTapped_BarChord(_ sender: UITapGestureRecognizer){
         playChord(chord: (sender.view as! ChordBarCell).chord!)
-        //keep the selecting cell row number
+        //save the selecting cell's row number (indexPath)
         let path: NSIndexPath = chordBarCollectionView.indexPath(for: sender.view as! ChordBarCell)! as NSIndexPath
+        self.selectedChordBarIndexPath = path
         self.selectedBarChordNum = path.row
         self.chordBarDetailView.setDetails(chord: (sender.view as! ChordBarCell).chord!,
                                         bassNote:(sender.view as! ChordBarCell).bassNote!,
