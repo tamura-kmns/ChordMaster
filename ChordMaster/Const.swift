@@ -15,6 +15,8 @@ let DegreeNumber:[String] = ["I","Ⅱ♭","Ⅱ","Ⅲ♭","Ⅲ","Ⅳ","Ⅴ♭","�
 
 //コード鳴らす時の基準C-4 のallNoteArray内の順番
 let BASE_C_NUMBER = 48
+//Bass音のC C-3
+let BASE_BASS_C_NUMBER = 24
 
 
 enum ChordSet {

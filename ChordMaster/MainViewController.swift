@@ -20,7 +20,7 @@ UITextFieldDelegate,UICollectionViewDataSource,UIGestureRecognizerDelegate,AVAud
     @IBOutlet weak var chordBarDetailView: ChordBarDetailView!
     
     let utils = Utils()
-    let engine = AVAudioEngine()
+    let player = Player()
     
     let NUMBER_OF_CHORD_GROUPS = 5
     
@@ -296,7 +296,8 @@ UITextFieldDelegate,UICollectionViewDataSource,UIGestureRecognizerDelegate,AVAud
     @objc func singleTapped(_ sender: UITapGestureRecognizer){
         self.chordDetailView.setDetails(chord: (sender.view as! ChordCell).chord!,
                                         bassNote: (sender.view as! ChordCell).chord!.baseNote!)
-        playChord(chord: (sender.view as! ChordCell).chord!)
+        player.playChord(chord: (sender.view as! ChordCell).chord!,
+                         bassNote:(sender.view as! ChordCell).chord!.baseNote!)
     }
     
     @objc func doubleTapped(_ sender: UITapGestureRecognizer){
@@ -308,7 +309,8 @@ UITextFieldDelegate,UICollectionViewDataSource,UIGestureRecognizerDelegate,AVAud
     }
     
     @objc func singleTapped_BarChord(_ sender: UITapGestureRecognizer){
-        playChord(chord: (sender.view as! ChordBarCell).chord!)
+        player.playChord(chord: (sender.view as! ChordBarCell).chord!,
+                         bassNote: (sender.view as! ChordBarCell).bassNote!)
         //save the selecting cell's row number (indexPath)
         let path: NSIndexPath = chordBarCollectionView.indexPath(for: sender.view as! ChordBarCell)! as NSIndexPath
         self.selectedChordBarIndexPath = path
@@ -371,27 +373,7 @@ UITextFieldDelegate,UICollectionViewDataSource,UIGestureRecognizerDelegate,AVAud
         }
     }
     
-    func playChord(chord:Chord){
-        let baseNoteNum = Int16(BASE_C_NUMBER) + (chord.baseNote?.noteNumber)!
-        var audioPlayers:[AVAudioPlayerNode] = []
-        for noteNum:Int in (chord.chordBase?.intvls)! {
-            let playNoteNum = (baseNoteNum + Int16(noteNum))
-            let player = AVAudioPlayerNode()
 
-            let filePath = Bundle.main.path(forResource: allNoteArray[Int(playNoteNum)].fileName, ofType: "mp3")!
-            let fileURL = URL(fileURLWithPath: filePath)
-            if let audioFile = try? AVAudioFile(forReading: fileURL) {
-                engine.attach(player)
-                engine.connect(player, to: engine.mainMixerNode, format: audioFile.processingFormat)
-                player.scheduleFile(audioFile, at: nil, completionHandler: nil)
-                audioPlayers.append(player)
-            }
-        }
-        try? engine.start()
-        for player in audioPlayers {
-            player.play()
-        }
-    }
     
 
 }

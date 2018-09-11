@@ -103,6 +103,7 @@
 		687847032103D5B50094EB78 /* Chord+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 687846FD2103D5B50094EB78 /* Chord+CoreDataClass.swift */; };
 		687847042103D5B50094EB78 /* Chord+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 687846FE2103D5B50094EB78 /* Chord+CoreDataProperties.swift */; };
 		688F785A2110F7A8009A4F8A /* chordBarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688F78592110F7A8009A4F8A /* chordBarCell.swift */; };
+		68B48D1821485E9E00A80D2C /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68B48D1721485E9E00A80D2C /* Player.swift */; };
 		68D2DC7120EFEECF00B225DC /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D2DC7020EFEECF00B225DC /* Const.swift */; };
 		68D2DC7720F2A38500B225DC /* ChordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D2DC7620F2A38500B225DC /* ChordCell.swift */; };
 		68FFBEAA20EAB8A600379616 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FFBEA920EAB8A600379616 /* AppDelegate.swift */; };
@@ -213,6 +214,7 @@
 		687846FD2103D5B50094EB78 /* Chord+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Chord+CoreDataClass.swift"; sourceTree = "<group>"; };
 		687846FE2103D5B50094EB78 /* Chord+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Chord+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		688F78592110F7A8009A4F8A /* chordBarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = chordBarCell.swift; sourceTree = "<group>"; };
+		68B48D1721485E9E00A80D2C /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		68D2DC7020EFEECF00B225DC /* Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
 		68D2DC7620F2A38500B225DC /* ChordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChordCell.swift; sourceTree = "<group>"; };
 		68FFBEA620EAB8A600379616 /* ChordMaster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChordMaster.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -361,6 +363,7 @@
 				68D2DC7020EFEECF00B225DC /* Const.swift */,
 				68FFBED820EB61E200379616 /* Notes.swift */,
 				68FFBED620EB60AE00379616 /* Chords.swift */,
+				68B48D1721485E9E00A80D2C /* Player.swift */,
 				68FFBEA920EAB8A600379616 /* AppDelegate.swift */,
 				68FFBEAB20EAB8A600379616 /* MainViewController.swift */,
 				68D2DC7620F2A38500B225DC /* ChordCell.swift */,
@@ -551,6 +554,7 @@
 				68FFBEAC20EAB8A600379616 /* MainViewController.swift in Sources */,
 				687847032103D5B50094EB78 /* Chord+CoreDataClass.swift in Sources */,
 				68FFBEAA20EAB8A600379616 /* AppDelegate.swift in Sources */,
+				68B48D1821485E9E00A80D2C /* Player.swift in Sources */,
 				68FFBEDF20EC8C9900379616 /* Utils.swift in Sources */,
 				68D2DC7120EFEECF00B225DC /* Const.swift in Sources */,
 			);
