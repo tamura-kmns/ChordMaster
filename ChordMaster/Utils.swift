@@ -66,6 +66,8 @@ public class Utils: NSObject {
             chordSetArray = minorAllTriadChords
         case .DIATONIC_MINOR_ALL_4:
             chordSetArray = minorAll4NotesChords
+        case .SECONDARY_DOMINANT:
+            chordSetArray = secondaryDominantChords
         case .SUBDOMINANT_MINOR:
             break
         }
@@ -85,7 +87,7 @@ public class Utils: NSObject {
     }
     
     
-    func inverse_high(chord:inout Chord){
+    func inverse_high(chord:Chord){
         let noteCount:Int = (chord.chordBase?.intvls?.count)!
         for i in 0..<noteCount-1 {
             chord.chordBase?.intvls?.arraySwap(index1: i, index2: i+1)
@@ -93,7 +95,7 @@ public class Utils: NSObject {
         chord.chordBase?.intvls?[noteCount-1] = (chord.chordBase?.intvls?[noteCount-1])! + 12
     }
     
-    func inverse_low(chord:inout Chord) {
+    func inverse_low(chord:Chord) {
         let noteCount:Int = (chord.chordBase?.intvls?.count)! 
         for i in (1..<noteCount).reversed() {
             chord.chordBase?.intvls?.arraySwap(index1: i, index2: i-1)
@@ -125,14 +127,6 @@ public class Utils: NSObject {
     }
 
 }
-
-//////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-
-
-
-
 
 
 

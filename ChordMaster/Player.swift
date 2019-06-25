@@ -17,6 +17,7 @@ public class Player: NSObject {
     func playChord(chord:Chord, bassNote:BasicNote){
         let baseNoteNum = Int16(BASE_C_NUMBER) + (chord.baseNote?.noteNumber)!
         var audioPlayers:[AVAudioPlayerNode] = []
+        
         for noteNum:Int in (chord.chordBase?.intvls)! {
             let playNoteNum = (baseNoteNum + Int16(noteNum))
             let player = AVAudioPlayerNode()
@@ -47,26 +48,6 @@ public class Player: NSObject {
             player.play()
         }
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 }

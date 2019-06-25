@@ -31,6 +31,7 @@ enum ChordSet {
     case DIATONIC_MINOR_ALL_3
     case DIATONIC_MINOR_ALL_4
     
+    case SECONDARY_DOMINANT
     case SUBDOMINANT_MINOR
 }
 

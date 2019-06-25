@@ -171,5 +171,9 @@ let minorAllTriadChords = [(0,minor,1),(2,dim,2),(2,minor,2),(3,augment,3),(3,ma
 let minorAll4NotesChords = [(0,minor7,1),(0,minormaj7,1),(2,halfdim,2),(2,minor7,2),(3,maj7,3),(3,maj7s5,3),(5,minor7,4),(5,seventh,4),(5,minor,4),(7,seventh,5),(7,minor7,5),(8,maj7,5),(9,halfdim,6),(10,seventh,6),(11,dim7,7),(11,halfdim,7)]
 
 
+let secondaryDominantChords = [(0,seventh,0),(2,seventh,2),(4,seventh,4),(6,seventh,6),(9,seventh,9),(11,seventh,11)]
+
+
+
 
 

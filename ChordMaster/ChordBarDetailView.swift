@@ -15,6 +15,11 @@ class ChordBarDetailView: UIView {
     @IBOutlet weak var bassPickerView: UIPickerView!
     @IBOutlet weak var bassDegreeLabel: UILabel!
     
+    @IBOutlet weak var twofiveButton: UIButton!
+    @IBOutlet weak var secondaryDominantButton: UIButton!
+    
+    var currentKeyNumber: Int = 0
+    
     
     let utils = Utils()
     
@@ -47,6 +52,17 @@ class ChordBarDetailView: UIView {
     
     func setBassDegreeLabel(bassNote: BasicNote,inKey:Int) {
        self.bassDegreeLabel.text = DegreeNumber[utils.getDegreeInKey(note:bassNote,keyNumber:inKey)]
+    }
+    
+    
+    
+    func addSecondaryDominant(){
+        
+        
+    }
+    
+    func makeTwoFive(){
+        
     }
 
 }

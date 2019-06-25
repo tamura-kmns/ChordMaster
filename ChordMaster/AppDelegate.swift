@@ -16,7 +16,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
         
         let dbAccess = DBAccess()
         let chordCount:Int? = dbAccess.db_countChords() //TODO コードのカウントでいいか？
@@ -67,7 +66,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     //12音生成
-    
     func initBasicNote(){
      let dbAccess = DBAccess()
         for i in 0..<12 {

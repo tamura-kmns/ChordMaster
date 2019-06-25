@@ -33,7 +33,9 @@ UITextFieldDelegate,UICollectionViewDataSource,UIGestureRecognizerDelegate,AVAud
     var chordArray_AllMinor3: [Chord] = []
     var chordArray_AllMinor4: [Chord] = []
     
-    var chordBarArray: [(chord:Chord, bass:BasicNote, key:Int)] = []
+    var chordArray_SecondaryDominants: [Chord] = []
+    
+    var chordBarArray: [(chord:Chord, bass:BasicNote, key:Int)] = [] //(コード,ベース音,in which key)
     
     var selectedChordBarIndexPath: NSIndexPath? = nil
     var selectedBarChordNum: Int = 0
@@ -83,11 +85,12 @@ UITextFieldDelegate,UICollectionViewDataSource,UIGestureRecognizerDelegate,AVAud
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if (ViewTag.KEY_PICKERVIEW.rawValue == pickerView.tag) {
             self.currentKeyNumber = row
+            self.chordBarDetailView.currentKeyNumber = row
             self.allChordsArray.removeAll()
+            
             chordArray_Diatonic3.removeAll()
             var chords = utils.getChordsFor(baseNoteNum: row, chordset: ChordSet.DIATONIC_MAJOR_3)
             for chord in chords{
-                //print((chord.baseNote?.eNameF)! + (chord.chordBase?.symbol)!)
                 chordArray_Diatonic3.append(chord)
             }
             //allChordsArray += chordArray_Diatonic3
@@ -97,6 +100,13 @@ UITextFieldDelegate,UICollectionViewDataSource,UIGestureRecognizerDelegate,AVAud
             chords = utils.getChordsFor(baseNoteNum: row, chordset: ChordSet.DIATONIC_MAJOR_4)
             for chord in chords{
                 chordArray_Diatonic4.append(chord)
+            }
+            
+            chordArray_SecondaryDominants.removeAll()
+            chords.removeAll()
+            chords = utils.getChordsFor(baseNoteNum: row, chordset: ChordSet.SECONDARY_DOMINANT)
+            for chord in chords{
+                chordArray_SecondaryDominants.append(chord)
             }
             //allChordsArray += chordArray_Diatonic4
             
@@ -168,6 +178,10 @@ UITextFieldDelegate,UICollectionViewDataSource,UIGestureRecognizerDelegate,AVAud
                 return self.chordArray_AllMinor3.count
             case 3:
                 return self.chordArray_AllMinor4.count
+                
+            case 4:
+                return self.chordArray_SecondaryDominants.count
+                
             default:
                 return 0
             }
@@ -186,22 +200,19 @@ UITextFieldDelegate,UICollectionViewDataSource,UIGestureRecognizerDelegate,AVAud
             switch(indexPath.section){
             case 0:
                 cell.chord = self.chordArray_Diatonic3[indexPath.row]
-                
                 cell.backgroundColor = UIColor.cyan
             case 1:
                 cell.chord = self.chordArray_Diatonic4[indexPath.row]
-                
                 cell.backgroundColor = UIColor.blue
-                
             case 2:
                 cell.chord = self.chordArray_AllMinor3[indexPath.row]
-                
                 cell.backgroundColor = UIColor.yellow
             case 3:
                 cell.chord = self.chordArray_AllMinor4[indexPath.row]
-                
                 cell.backgroundColor = UIColor.orange
-                
+            case 4:
+                cell.chord = self.chordArray_SecondaryDominants[indexPath.row]
+                cell.backgroundColor = UIColor.green
             default:
                 break;
             }
@@ -301,10 +312,12 @@ UITextFieldDelegate,UICollectionViewDataSource,UIGestureRecognizerDelegate,AVAud
     }
     
     @objc func doubleTapped(_ sender: UITapGestureRecognizer){
-        chordBarArray.append( ((sender.view as! ChordCell).chord!,
+        /*chordBarArray.append( ((sender.view as! ChordCell).chord!,
                                (sender.view as! ChordCell).chord!.baseNote!,
                                self.currentKeyNumber)
-        )
+        )*/
+        self.appendChord(chord:(sender.view as! ChordCell).chord!,key:self.currentKeyNumber)
+        
         chordBarCollectionView.reloadData()
     }
     
@@ -341,11 +354,11 @@ UITextFieldDelegate,UICollectionViewDataSource,UIGestureRecognizerDelegate,AVAud
         
         if sender.direction == .right {
             print("Right")
-            utils.inverse_high(chord: &(sender.view as! ChordCell).chord! )
+            utils.inverse_high(chord: (sender.view as! ChordCell).chord! )
         }
         else if sender.direction == .left {
             print("Left")
-            utils.inverse_low(chord: &(sender.view as! ChordCell).chord! )
+            utils.inverse_low(chord: (sender.view as! ChordCell).chord! )
         }
         self.chordDetailView.setChordNotes(chord: (sender.view as! ChordCell).chord!)
     }
@@ -373,8 +386,14 @@ UITextFieldDelegate,UICollectionViewDataSource,UIGestureRecognizerDelegate,AVAud
         }
     }
     
-
+    func appendChord(chord: Chord, key: Int){
+        let chord_copy = chord
+        let key_copy = key
     
+        chordBarArray.append( (chord_copy,chord_copy.baseNote!,key_copy) )
+
+    }
+
 
 }
 
